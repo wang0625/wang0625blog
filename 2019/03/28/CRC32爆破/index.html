@@ -9,19 +9,19 @@
   
   <title>CRC32爆破 | 小石头</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to 小石头! 前言12最近奇兵队长在 [沙漏安全](http://211.69.16.145:8000/)上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。 正文1CRC用来校验文件是否出错但并不能用于自动纠">
+  <meta name="description" content="Welcome to 小石头! 前言12最近奇兵队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。 沙漏安全 正文1CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色人箭">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CRC32爆破">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/CRC32爆破/index.html">
 <meta property="og:site_name" content="小石头">
-<meta property="og:description" content="Welcome to 小石头! 前言12最近奇兵队长在 [沙漏安全](http://211.69.16.145:8000/)上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。 正文1CRC用来校验文件是否出错但并不能用于自动纠">
+<meta property="og:description" content="Welcome to 小石头! 前言12最近奇兵队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。 沙漏安全 正文1CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色人箭">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/picture/20180224131551484.png">
 <meta property="og:image" content="http://yoursite.com/picture/QQ图片20190328221550.png">
-<meta property="og:updated_time" content="2019-03-28T14:26:14.038Z">
+<meta property="og:updated_time" content="2019-03-28T14:28:34.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CRC32爆破">
-<meta name="twitter:description" content="Welcome to 小石头! 前言12最近奇兵队长在 [沙漏安全](http://211.69.16.145:8000/)上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。 正文1CRC用来校验文件是否出错但并不能用于自动纠">
+<meta name="twitter:description" content="Welcome to 小石头! 前言12最近奇兵队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。 沙漏安全 正文1CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色人箭">
 <meta name="twitter:image" content="http://yoursite.com/picture/20180224131551484.png">
   
     <link rel="alternative" href="/atom.xml" title="小石头" type="application/atom+xml">
@@ -316,7 +316,8 @@
       
           
         <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最近奇兵队长在 [沙漏安全](http://211.69.16.145:8000/)上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，</span><br><span class="line">令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。</span><br></pre></td></tr></table></figure>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最近奇兵队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，</span><br><span class="line">令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。</span><br></pre></td></tr></table></figure>
+<p><a href="http://211.69.16.145:8000/" target="_blank" rel="noopener">沙漏安全</a></p>
 <h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色人箭头指出）</span><br></pre></td></tr></table></figure>
 <p><img src="/picture/20180224131551484.png"></p>
 <h3 id="这里以破解四位CRC的压缩包为例-写一个理解之后的脚本"><a href="#这里以破解四位CRC的压缩包为例-写一个理解之后的脚本" class="headerlink" title="这里以破解四位CRC的压缩包为例    写一个理解之后的脚本"></a>这里以破解四位CRC的压缩包为例    写一个理解之后的脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line">import binascii</span><br><span class="line">import string </span><br><span class="line"></span><br><span class="line">dic=string.printable     <span class="comment">#各种打印字符</span></span><br><span class="line"></span><br><span class="line">crc = <span class="string">''</span><span class="string">'你的输入 '</span><span class="string">''</span>     <span class="comment"># 记得要以0x开头</span></span><br><span class="line">def CrackCrc(crc):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dic :</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> dic:</span><br><span class="line">                <span class="keyword">for</span> q <span class="keyword">in</span> dic:</span><br><span class="line">                    s=i+j+p+q</span><br><span class="line">                    <span class="keyword">if</span> crc == (binascii.crc32(s) &amp; 0xffffffff):</span><br><span class="line">                        <span class="built_in">print</span> s</span><br></pre></td></tr></table></figure>
@@ -336,7 +337,7 @@
         <p><span>本文标题:</span><a href="/2019/03/28/CRC32爆破/">CRC32爆破</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小石头 的个人博客">小石头</a></p>
         <p><span>发布时间:</span>2019年03月28日 - 21时45分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 22时26分</p>
+        <p><span>最后更新:</span>2019年03月28日 - 22时28分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/28/CRC32爆破/" title="CRC32爆破">http://yoursite.com/2019/03/28/CRC32爆破/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/28/CRC32爆破/　　作者: 小石头" title></span>
