@@ -280,6 +280,73 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-CRC32爆破" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/28/CRC32爆破/" class="article-date">
+      <time datetime="2019-03-28T13:45:24.000Z" itemprop="datePublished">2019-03-28</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/28/CRC32爆破/">CRC32爆破</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最近奇兵队长在[沙漏安全](http://211.69.16.145:8000/)上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下吧。。</span><br></pre></td></tr></table></figure>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色人箭头指出）</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/20180224131551484.png"></p>
+<h3 id="这里以破解四位CRC的压缩包为例-写一个理解之后的脚本"><a href="#这里以破解四位CRC的压缩包为例-写一个理解之后的脚本" class="headerlink" title="这里以破解四位CRC的压缩包为例    写一个理解之后的脚本"></a>这里以破解四位CRC的压缩包为例    写一个理解之后的脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line">import binascii</span><br><span class="line">import string </span><br><span class="line"></span><br><span class="line">dic=string.printable     <span class="comment">#各种打印字符</span></span><br><span class="line"></span><br><span class="line">crc = <span class="string">''</span><span class="string">'你的输入 '</span><span class="string">''</span>     <span class="comment"># 记得要以0x开头</span></span><br><span class="line">def CrackCrc(crc):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dic :</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> dic:</span><br><span class="line">                <span class="keyword">for</span> q <span class="keyword">in</span> dic:</span><br><span class="line">                    s=i+j+p+q</span><br><span class="line">                    <span class="keyword">if</span> crc == (binascii.crc32(s) &amp; 0xffffffff):</span><br><span class="line">                        <span class="built_in">print</span> s</span><br></pre></td></tr></table></figure>
+<h3 id="要特别注意"><a href="#要特别注意" class="headerlink" title="要特别注意"></a>要特别注意</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (binascii.crc32(str(i)) &amp; 0xffffffff) == crc:                                                                                                         </span><br><span class="line">	在 Python 2.x 的版本中，binascii.crc32 所计算出來的 CRC 值域为[-2^31, 2^31-1] 之间的有符号整数，为了要与一般CRC 结果作比对，需要将其转为无符号整数，所以加上&amp; 0xffffffff来进行转换。如果是 Python 3.x 的版本，其计算结果为 [0, 2^32-1] 间的无符号整数，因此不需额外加上&amp; 0xffffffff</span><br><span class="line">``` </span><br><span class="line"><span class="comment">###    下面就bugku那道多个压缩包为例，上脚本</span></span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line">import binascii</span><br><span class="line">import string </span><br><span class="line">import zipfile</span><br><span class="line"><span class="comment"># def tansnum(s):</span></span><br><span class="line"><span class="comment">#     return int(s, 16)  转十六进制</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dic=string.printable</span><br><span class="line"></span><br><span class="line">def CrackCrc(crc):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dic :</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> dic:</span><br><span class="line">                <span class="keyword">for</span> q <span class="keyword">in</span> dic:</span><br><span class="line">                    s=i+j+p+q</span><br><span class="line">                    <span class="keyword">if</span> crc == (binascii.crc32(s) &amp; 0xffffffff):</span><br><span class="line">                        <span class="built_in">print</span> s</span><br><span class="line">                        <span class="comment">#return </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getcrc32():</span><br><span class="line">    l=[]</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> range(68):</span><br><span class="line">        file = <span class="string">'out'</span> + str(b) + <span class="string">'.zip'</span></span><br><span class="line">        f = zipfile.ZipFile(file,<span class="string">'r'</span>)</span><br><span class="line">        GetCrc = f.getinfo(<span class="string">'data.txt'</span>)</span><br><span class="line">        crc = GetCrc.CRC</span><br><span class="line">        l.append(hex(crc))</span><br><span class="line">    <span class="built_in">return</span> l</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__  == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment">#c = open('out.txt', 'w')</span></span><br><span class="line">    l = getcrc32()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">       CrackCrc(i)</span><br><span class="line">    <span class="comment">#c.close()</span></span><br></pre></td></tr></table></figure>
+<h3 id="另外还有一款很好用的6位的CRC32爆破"><a href="#另外还有一款很好用的6位的CRC32爆破" class="headerlink" title="另外还有一款很好用的6位的CRC32爆破"></a>另外还有一款很好用的6位的CRC32爆破</h3><p>附上神器：<a href="https://github.com/theonlypwner/crc32" target="_blank" rel="noopener">https://github.com/theonlypwner/crc32</a><br>具体使用方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python crc32.py reverse (0X)你的crc32密文</span><br></pre></td></tr></table></figure></p>
+<p>这里的密文记得加上0x变成16进制   即可非常迅速的爆破出对应的数据，举个例子</p>
+<p><img src="/picture/QQ图片20190328221550.png"></p>
+<p>这个CRC32爆破一旦超过六位，爆破需要花很长的时间，<a href="http://211.69.16.145:8000/" target="_blank" rel="noopener">沙漏安全</a>上就有一道题，我代码跑了两个多小时，结果进度也就达到了10%，这就从另外一个角度诠释了什么叫无法破解的密码//(ㄒoㄒ)//</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-How-to-Build-a-Blog-with-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
