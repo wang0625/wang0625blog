@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>PHP学习小结 (2) | 小石头</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Welcome to 小石头 前言应惊奇队长的要求团队成员需要自学成员需要在网上自学PHP，我在网上通过孙胜利的PHP从入门到精通——含基础入门、MySQL、项目实战进行了学习，由于这篇文章是在火车上进行编写的、打字不方便，所以基本上是用了视频教学的截图 一、自定义函数123456789101112131415function 函数名([形式参数1,形式参数2,....形式参数n])&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP学习小结 (2)">
+<meta property="og:url" content="http://yoursite.com/2019/04/12/PHP学习小结 (2)/index.html">
+<meta property="og:site_name" content="小石头">
+<meta property="og:description" content="Welcome to 小石头 前言应惊奇队长的要求团队成员需要自学成员需要在网上自学PHP，我在网上通过孙胜利的PHP从入门到精通——含基础入门、MySQL、项目实战进行了学习，由于这篇文章是在火车上进行编写的、打字不方便，所以基本上是用了视频教学的截图 一、自定义函数123456789101112131415function 函数名([形式参数1,形式参数2,....形式参数n])&amp;#123;">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/picture/数组理解.png">
+<meta property="og:updated_time" content="2019-05-01T00:42:32.962Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP学习小结 (2)">
+<meta name="twitter:description" content="Welcome to 小石头 前言应惊奇队长的要求团队成员需要自学成员需要在网上自学PHP，我在网上通过孙胜利的PHP从入门到精通——含基础入门、MySQL、项目实战进行了学习，由于这篇文章是在火车上进行编写的、打字不方便，所以基本上是用了视频教学的截图 一、自定义函数123456789101112131415function 函数名([形式参数1,形式参数2,....形式参数n])&amp;#123;">
+<meta name="twitter:image" content="http://yoursite.com/picture/数组理解.png">
+  
+    <link rel="alternative" href="/atom.xml" title="小石头" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">小石头</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">选一种姿态，让自己活得无可替代</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                        
+                            <li><a href="/categories/digital">玩转数码</a></li>
+                        
+                            <li><a href="/categories/algorithm">算法学习</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="/xxxxx" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/baidu_21483933">csdn</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://segmentfault.com/blog/maocg_web">segmentfault</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/eb37ef89c746/latest_articles">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱游戏,爱编程,爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">小石头</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">小石头</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">选一种姿态，让自己活得无可替代</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/开发工具/">玩转开发工具</a></li>
+                
+                    <li><a href="/categories/digital">玩转数码</a></li>
+                
+                    <li><a href="/categories/algorithm">算法学习</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="/xxxxx" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="/xxxxxxxx" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-PHP学习小结 (2)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/04/12/PHP学习小结 (2)/" class="article-date">
+      <time datetime="2019-04-12T05:45:24.000Z" itemprop="datePublished">2019-04-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP学习小结 (2)
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>应惊奇队长的要求团队成员需要自学成员需要在网上自学PHP，我在网上通过孙胜利的<a href="https://www.bilibili.com/video/av37494327?from=search&amp;seid=8075339785236418301" target="_blank" rel="noopener">PHP从入门到精通——含基础入门、MySQL、项目实战</a>进行了学习，由于这篇文章是在火车上进行编写的、打字不方便，所以基本上是用了视频教学的截图</p>
+<h3 id="一、自定义函数"><a href="#一、自定义函数" class="headerlink" title="一、自定义函数"></a>一、自定义函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> 函数名([形式参数1,形式参数2,....形式参数n])&#123;</span><br><span class="line">		//各种PHP代码....</span><br><span class="line">		//......</span><br><span class="line">		<span class="built_in">return</span> 表达式;//也可以不返回，如果不写那么默认返回null</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	函数的调用:</span><br><span class="line">		函数的调用需要遵循定义函数的时候写的规则，一一对应，将具体的实际参数传给定义函数时候写的形式参数！</span><br><span class="line">		调用函数之后执行的过程是相对独立的，互补干扰，默认没有联系！</span><br><span class="line">		执行完毕返回调用的位置继续向下执行</span><br><span class="line">	函数的返回值：</span><br><span class="line">		返回给调用者,默认返回null</span><br><span class="line">	</span><br><span class="line">	函数比喻成我们现实生活中的 某个零件的制造部门！</span><br><span class="line">	参数：原材料或者是这个零件的一些具体的参数！</span><br></pre></td></tr></table></figure>
+<h3 id="二、PHP变量的范围"><a href="#二、PHP变量的范围" class="headerlink" title="二、PHP变量的范围"></a>二、PHP变量的范围</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">1.局部变量</span><br><span class="line">		<span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">			<span class="variable">$a</span>=1;//局部变量<span class="variable">$a</span>，尽在这个函数内部有效</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$a</span>;</span><br><span class="line">2.全局变量</span><br><span class="line">		<span class="variable">$i</span>=10;//全局变量（外部变量）</span><br><span class="line">		define(<span class="string">'MY_NAME'</span>,<span class="string">'孙胜利'</span>);</span><br><span class="line">		<span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">			<span class="built_in">echo</span> MY_NAME;</span><br><span class="line">			global <span class="variable">$i</span>;//声明<span class="variable">$i</span>为全局变量,然后再这个函数内部就可以使用<span class="variable">$i</span></span><br><span class="line">			<span class="built_in">echo</span> <span class="variable">$i</span>;</span><br><span class="line">			<span class="variable">$a</span>=1;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">test</span>();</span><br><span class="line">3.静态变量</span><br><span class="line">		<span class="keyword">function</span> <span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">			static <span class="variable">$a</span>=10;//静态变量<span class="variable">$a</span>,初始化静态变量,尽在第一次调用的时候执行</span><br><span class="line">			<span class="built_in">echo</span> ++<span class="variable">$a</span>;//当第二次执行这个函数的时候<span class="variable">$a</span>这个变量依然存在并且里面的也值依然存在！</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">test</span>();</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">		<span class="built_in">test</span>();</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">		<span class="built_in">test</span>();</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">		<span class="built_in">test</span>();</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">		<span class="built_in">test</span>();</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">		<span class="built_in">test</span>();</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">'&lt;br /&gt;'</span>;</span><br><span class="line">		<span class="built_in">test</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="三、参数的传递"><a href="#三、参数的传递" class="headerlink" title="三、参数的传递"></a>三、参数的传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.按值传递参数</span><br><span class="line">		默认的，我们在传递参数的时候默认使用的就是这个方式！</span><br><span class="line">		对形式参数的操作，根本不是影响到实际参数(变量)的值，两者相当于没有联系!</span><br><span class="line">	2.按引用传递参数</span><br><span class="line">		按引用传递参数，相当于形式参数和实际参数指的是同一个人，只是名字不一样，对于形式参数的操作会直接影响到实际参数（变量）;</span><br><span class="line">	3.函数的默认参数</span><br><span class="line">		可以给形式参数设置默认值，设置方法很简单直接赋值即可！</span><br><span class="line">		给形式参数加默认值的时候是重右往左加的，右边的必须有，才能够给左边的加！</span><br><span class="line">	4.可变长度参数列表</span><br><span class="line">		PHP提供给我们的，可以直接使用</span><br><span class="line">		func_get_args();</span><br><span class="line">		func_get_arg();</span><br><span class="line">		func_num_args();</span><br><span class="line">		这三个函数可以使用在我们的自定义函数内部，能够返回给我们一些关于参数的信息!</span><br></pre></td></tr></table></figure>
+<h3 id="四、可变函数（变量函数）"><a href="#四、可变函数（变量函数）" class="headerlink" title="四、可变函数（变量函数）"></a>四、可变函数（变量函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">直接把函数赋值给变量</span><br><span class="line">		可变函数不能用于例如 <span class="built_in">echo</span>，<span class="built_in">print</span>，<span class="built_in">unset</span>()，isset()，empty()，include，require 以及类似的语言结构。需要使用自己的包装函数来将这些结构用作可变函数。</span><br></pre></td></tr></table></figure>
+<h3 id="五、递归函数"><a href="#五、递归函数" class="headerlink" title="五、递归函数"></a>五、递归函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">递归函数即在函数内部自己调用自己的函数。</span><br><span class="line">	递归函数：</span><br><span class="line">		1)函数在被调用的执行过程中会在内存里面分配空间用于存储临时数据，那么函数在执行过程中默认之间时没有联系的（除了</span><br><span class="line">		静态变量，按引用传，全局变量）。里面的变量默认都是局部变量，相互之间没有影响！</span><br><span class="line">		2)递归函数，在函数的内部需要有适时结束函数运行的条件！</span><br></pre></td></tr></table></figure>
+<h3 id="六、内部（内置）函数）"><a href="#六、内部（内置）函数）" class="headerlink" title="六、内部（内置）函数）"></a>六、内部（内置）函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP提供给我我们许多现成的函数或者结构，我们可以在实际的开发中直接使用！</span><br><span class="line">	还有一些函数需要开启特定地 PHP 扩展模块，否则在使用它们的时候就会得到一个致命的“未定义函数”错误。</span><br><span class="line">	</span><br><span class="line">	一些常用的内置函数或者扩展的函数，我们在后面会陆陆续续的学习到，一些不太常用的可能我们没有办法全部讲到，但是</span><br><span class="line">	你使用函数是用来完成功能的，说白了，你有这样的需求，才会去找对应的函数！</span><br></pre></td></tr></table></figure>
+<h3 id="七、数组类型"><a href="#七、数组类型" class="headerlink" title="七、数组类型"></a>七、数组类型</h3><p><img src="/picture/数组理解.png"></p>
+<h3 id="八、数组创建）"><a href="#八、数组创建）" class="headerlink" title="八、数组创建）"></a>八、数组创建）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">方法一、</span><br><span class="line">		变量名称[索引值]=数据;</span><br><span class="line">		变量名称[]=数据;//不写索引值默认是 索引数组，从0开始</span><br><span class="line">方法二、</span><br><span class="line">		变量名称=array(</span><br><span class="line">			索引值=&gt;数据,</span><br><span class="line">			..........</span><br><span class="line">		);</span><br><span class="line">	数据里面还可放数组类型的数据，同一个数组中存储任何类型的数据</span><br><span class="line">	多维数组：</span><br><span class="line">		访问数值的方法</span><br><span class="line">		变量名称[索引值][索引值]....</span><br></pre></td></tr></table></figure>
+<h3 id="九、数组的遍历"><a href="#九、数组的遍历" class="headerlink" title="九、数组的遍历"></a>九、数组的遍历</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">遍历数组：每个都经历一遍的意思</span><br><span class="line">	1）<span class="keyword">for</span>循环</span><br><span class="line">		用的比较少，因为有缺陷</span><br><span class="line">	2）foreach语句来实现遍历数组的目的</span><br><span class="line">		foreach(数组变量 as 变量1)&#123;</span><br><span class="line">			//每次循环执行的语句</span><br><span class="line">			变量1代表当前正在经历（访问）的数据</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		foreach(数组变量 as 变量1=&gt;变量2)&#123;</span><br><span class="line">			//每次循环执行的语句</span><br><span class="line">			变量1代表当前正在经历（访问）的数据的索引值</span><br><span class="line">			变量1代表当前正在经历（访问）的数据</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="十、预定义超全局数组变量"><a href="#十、预定义超全局数组变量" class="headerlink" title="十、预定义超全局数组变量"></a>十、预定义超全局数组变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">已经定义好了（存在）的变量(存放的数据的类型是数组)。</span><br><span class="line">	超全局：超级全局变量，作用域（有效区域）！</span><br><span class="line">	</span><br><span class="line">	传递数据（提交数据）给服务器端主要两种方式</span><br><span class="line">	1.get方式</span><br><span class="line">		比如：</span><br><span class="line">		?参数名=参数值&amp;参数名=参数值......</span><br><span class="line">		http://localhost/demo5_3/index.php?参数名=参数值</span><br><span class="line">		在服务器端（请求的php文件这边）可以通过<span class="variable">$_GET</span>来获取到</span><br><span class="line">		<span class="variable">$_GET</span>索引值为参数名，索引值对应的数据就是参数值</span><br><span class="line">	2.post方式</span><br><span class="line">		比如表单 post发送过来的！</span><br><span class="line">		可以通过<span class="variable">$_POST</span>来获取到!</span><br></pre></td></tr></table></figure>
+<h3 id="十一、处理数组的相关函数"><a href="#十一、处理数组的相关函数" class="headerlink" title="十一、处理数组的相关函数"></a>十一、处理数组的相关函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">1)array_count_values</span><br><span class="line">		<span class="variable">$array</span> = array(1, <span class="string">"hello"</span>, 1, <span class="string">"world"</span>, <span class="string">"hello"</span>);</span><br><span class="line">		<span class="variable">$arr</span>=array_count_values(<span class="variable">$array</span>);//函数返回数组类型的数据</span><br><span class="line">		print_r(<span class="variable">$array</span>);//原来的数组不会受到任何影响</span><br><span class="line">	2)array_key_exists</span><br><span class="line">		<span class="variable">$search_array</span> = array(<span class="string">'first'</span> =&gt; 1, <span class="string">'second'</span> =&gt; 4);</span><br><span class="line">		var_dump(array_key_exists(<span class="string">'second'</span>,<span class="variable">$search_array</span>));</span><br><span class="line">	3)array_search</span><br><span class="line">		<span class="variable">$array</span> = array(0 =&gt; <span class="string">'blue'</span>, 1 =&gt; <span class="string">'red'</span>, 2 =&gt; <span class="string">'green'</span>, 3 =&gt; <span class="string">'red'</span>,4=&gt;15);</span><br><span class="line">		var_dump(array_search(<span class="string">'15'</span>, <span class="variable">$array</span>,<span class="literal">true</span>));</span><br><span class="line">	4)count</span><br><span class="line">		<span class="variable">$array</span> = array(0 =&gt; <span class="string">'blue'</span>, 1 =&gt; <span class="string">'red'</span>, 2 =&gt; <span class="string">'green'</span>, 3 =&gt; <span class="string">'red'</span>,4=&gt;15);</span><br><span class="line">		var_dump(count(<span class="variable">$array</span>));</span><br><span class="line">	5)in_array</span><br><span class="line">		<span class="variable">$os</span> = array(<span class="string">"Mac"</span>, <span class="string">"NT"</span>, <span class="string">"Irix"</span>, <span class="string">"Linux"</span>);</span><br><span class="line">		var_dump(in_array(<span class="string">'Mac'</span>, <span class="variable">$os</span>));</span><br><span class="line">	6)list</span><br><span class="line">		<span class="variable">$arr</span>=array(60,80,100);</span><br><span class="line">		list(<span class="variable">$sunshengli</span>,<span class="variable">$xiaohong</span>,<span class="variable">$xiaoming</span>)=array(60,80,100);</span><br><span class="line">		<span class="built_in">echo</span> <span class="variable">$sunshengli</span>;</span><br><span class="line">	7)asort</span><br><span class="line">		<span class="variable">$students</span>=array(</span><br><span class="line">			<span class="string">'sunshengli'</span>=&gt;60,</span><br><span class="line">			<span class="string">'lilei'</span>=&gt;80,</span><br><span class="line">			<span class="string">'hanmeimei'</span>=&gt;100,</span><br><span class="line">			<span class="string">'zhangsan'</span>=&gt;90</span><br><span class="line">		);</span><br><span class="line">		asort(<span class="variable">$students</span>);</span><br><span class="line">		print_r(<span class="variable">$students</span>);</span><br><span class="line">		直接对数组里面的数据进行排序，第二个参数</span><br><span class="line">			SORT_REGULAR - 正常比较单元（不改变类型） </span><br><span class="line">			SORT_NUMERIC - 单元被作为数字来比较 </span><br><span class="line">			SORT_STRING - 单元被作为字符串来比较 </span><br><span class="line">			SORT_LOCALE_STRING - 根据当前的区域（locale）设置来把单元当作字符串比较。</span><br><span class="line">	8)array_filter</span><br><span class="line">		<span class="keyword">function</span> odd(<span class="variable">$var</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">return</span>(<span class="variable">$var</span> % 2 == 1);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">function</span> even(<span class="variable">$var</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">return</span>(<span class="variable">$var</span> % 2 == 0);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="variable">$array1</span> = array(<span class="string">"a"</span>=&gt;1, <span class="string">"b"</span>=&gt;2, <span class="string">"c"</span>=&gt;3, <span class="string">"d"</span>=&gt;4, <span class="string">"e"</span>=&gt;5);</span><br><span class="line">		<span class="variable">$array2</span> = array(6, 7, 8, 9, 10, 11, 12);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"Odd :\n"</span>;</span><br><span class="line">		print_r(array_filter(<span class="variable">$array1</span>, <span class="string">"odd"</span>));</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">"Even:\n"</span>;</span><br><span class="line">		print_r(array_filter(<span class="variable">$array2</span>, <span class="string">"even"</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="十二、字符串处理"><a href="#十二、字符串处理" class="headerlink" title="十二、字符串处理"></a>十二、字符串处理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">1、去除空格或其他字符函数</span><br><span class="line">	1）.trim</span><br><span class="line">		<span class="variable">$str</span>=<span class="string">'    abc   '</span>;</span><br><span class="line">		var_dump(<span class="variable">$str</span>);</span><br><span class="line">		var_dump(trim(<span class="variable">$str</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="variable">$str</span>=<span class="string">'abcabcdefac'</span>;</span><br><span class="line">		var_dump(<span class="variable">$str</span>);</span><br><span class="line">		var_dump(trim(<span class="variable">$str</span>,<span class="string">'bac'</span>));//如果要去除多个字符可以连着写！</span><br><span class="line">2、大小写转换函数</span><br><span class="line">	<span class="variable">$str</span>=<span class="string">'test'</span>;</span><br><span class="line">	var_dump(<span class="variable">$str</span>);</span><br><span class="line">	<span class="variable">$str1</span>=strtoupper(<span class="variable">$str</span>);</span><br><span class="line">	var_dump(<span class="variable">$str</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="variable">$str</span>=<span class="string">'TeSt'</span>;</span><br><span class="line">	var_dump(<span class="variable">$str</span>);</span><br><span class="line">	var_dump(strtolower(<span class="variable">$str</span>));</span><br><span class="line">	var_dump(<span class="variable">$str</span>);</span><br><span class="line">3、字符串查找函数</span><br><span class="line">	1）.substr_count</span><br><span class="line">		<span class="variable">$str</span>=<span class="string">'testteste'</span>;</span><br><span class="line">		var_dump(substr_count(<span class="variable">$str</span>,<span class="string">'te'</span>));</span><br><span class="line"></span><br><span class="line">		<span class="variable">$text2</span> = <span class="string">'gcdgcdgcd'</span>;</span><br><span class="line">		<span class="built_in">echo</span> substr_count(<span class="variable">$text2</span>, <span class="string">'gcdgcd'</span>);</span><br><span class="line"></span><br><span class="line">		<span class="variable">$str</span>=<span class="string">'testteste'</span>;</span><br><span class="line">		var_dump(substr_count(<span class="variable">$str</span>,<span class="string">'te'</span>,1,8));//不能超出字符串</span><br><span class="line">	2）.strpos</span><br><span class="line">		<span class="variable">$str</span>=<span class="string">'testteste'</span>;</span><br><span class="line">		var_dump(strpos(<span class="variable">$str</span>, <span class="string">'t1'</span>));</span><br><span class="line">		<span class="keyword">if</span>(strpos(<span class="variable">$str</span>, <span class="string">'t'</span>)===<span class="literal">false</span>)&#123;</span><br><span class="line">			<span class="built_in">echo</span> <span class="string">'没找到！'</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">echo</span> <span class="string">'找到啦!'</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="variable">$str</span>=<span class="string">'testteste'</span>;</span><br><span class="line">		var_dump(strpos(<span class="variable">$str</span>, <span class="string">'t'</span>,1));</span><br><span class="line">	3).strstr</span><br><span class="line">		<span class="variable">$str</span>=<span class="string">'testteste'</span>;</span><br><span class="line">		var_dump(<span class="variable">$str</span>);</span><br><span class="line">		var_dump(strstr(<span class="variable">$str</span>,<span class="string">'s'</span>));</span><br><span class="line">		var_dump(strstr(<span class="variable">$str</span>,<span class="string">'s'</span>,<span class="literal">true</span>));</span><br><span class="line">4、字符串替换函数</span><br><span class="line">	1).str_replace</span><br><span class="line">	<span class="variable">$str</span>=array(</span><br><span class="line">		<span class="string">'abc123abc'</span>,</span><br><span class="line">		<span class="string">'123abcabc'</span>,</span><br><span class="line">		<span class="string">'abcab123c'</span></span><br><span class="line">	);</span><br><span class="line">	var_dump(<span class="variable">$str</span>);</span><br><span class="line">	<span class="variable">$str1</span>=str_replace(array(<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>),array(<span class="string">'一'</span>,<span class="string">'二'</span>,<span class="string">'三'</span>),<span class="variable">$str</span>,<span class="variable">$count</span>);</span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$count</span>;</span><br><span class="line">	var_dump(<span class="variable">$str1</span>);</span><br><span class="line">5、与html标签相关的函数</span><br><span class="line">	1）.htmlspecialchars</span><br><span class="line">		<span class="variable">$str</span>=&lt;&lt;&lt;START</span><br><span class="line">		&lt;p style=<span class="string">"color:red;font-size:128px;"</span>&gt;单位确定为取得完全&lt;/p&gt;<span class="string">" '</span></span><br><span class="line"><span class="string">		START;</span></span><br><span class="line"><span class="string">		echo <span class="variable">$str</span>;</span></span><br><span class="line"><span class="string">		echo "</span>\n<span class="string">";</span></span><br><span class="line"><span class="string">		echo htmlspecialchars(<span class="variable">$str</span>);</span></span><br><span class="line"><span class="string">	2).strip_tags</span></span><br><span class="line"><span class="string">		<span class="variable">$str</span>=&lt;&lt;&lt;START</span></span><br><span class="line"><span class="string">		&lt;p style="</span>color:red;font-size:128px;<span class="string">"&gt;单位确定为取得完全&lt;/p&gt;</span></span><br><span class="line"><span class="string">		&lt;div style="</span>color:red;<span class="string">"&gt;的武器大全我&lt;/div&gt;</span></span><br><span class="line"><span class="string">		START;</span></span><br><span class="line"><span class="string">		//echo <span class="variable">$str</span>;</span></span><br><span class="line"><span class="string">		//echo "</span>\n<span class="string">";</span></span><br><span class="line"><span class="string">		echo strip_tags(<span class="variable">$str</span>,"</span>&lt;div&gt;&lt;p&gt;<span class="string">");</span></span><br><span class="line"><span class="string">6、字符串截取函数</span></span><br><span class="line"><span class="string">	1).substr</span></span><br><span class="line"><span class="string">		<span class="variable">$str</span>='testdqwdwqdwqdqdwq';</span></span><br><span class="line"><span class="string">		echo substr(<span class="variable">$str</span>,3,2);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		<span class="variable">$str</span>='test';</span></span><br><span class="line"><span class="string">		echo substr(<span class="variable">$str</span>,-3,2);</span></span><br><span class="line"><span class="string">7、字符串分隔函数</span></span><br><span class="line"><span class="string">	1).explode</span></span><br><span class="line"><span class="string">		<span class="variable">$str</span>='test,test1,test2,test3';</span></span><br><span class="line"><span class="string">		var_dump(explode(',',<span class="variable">$str</span>,2));</span></span><br><span class="line"><span class="string">	2).str_split</span></span><br><span class="line"><span class="string">		<span class="variable">$str</span>='test';</span></span><br><span class="line"><span class="string">		var_dump(str_split(<span class="variable">$str</span>,3));</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/04/12/PHP学习小结 (2)/">PHP学习小结 (2)</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 小石头 的个人博客">小石头</a></p>
+        <p><span>发布时间:</span>2019年04月12日 - 13时45分</p>
+        <p><span>最后更新:</span>2019年05月01日 - 08时42分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/12/PHP学习小结 (2)/" title="PHP学习小结 (2)">http://yoursite.com/2019/04/12/PHP学习小结 (2)/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/12/PHP学习小结 (2)/　　作者: 小石头" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/04/19/PHP学习小结 (3)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          PHP学习小结 (3)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/05/PHP学习小结 (1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PHP学习小结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、自定义函数"><span class="toc-number">2.</span> <span class="toc-text">一、自定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、PHP变量的范围"><span class="toc-number">3.</span> <span class="toc-text">二、PHP变量的范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、参数的传递"><span class="toc-number">4.</span> <span class="toc-text">三、参数的传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、可变函数（变量函数）"><span class="toc-number">5.</span> <span class="toc-text">四、可变函数（变量函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、递归函数"><span class="toc-number">6.</span> <span class="toc-text">五、递归函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、内部（内置）函数）"><span class="toc-number">7.</span> <span class="toc-text">六、内部（内置）函数）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、数组类型"><span class="toc-number">8.</span> <span class="toc-text">七、数组类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、数组创建）"><span class="toc-number">9.</span> <span class="toc-text">八、数组创建）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九、数组的遍历"><span class="toc-number">10.</span> <span class="toc-text">九、数组的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十、预定义超全局数组变量"><span class="toc-number">11.</span> <span class="toc-text">十、预定义超全局数组变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十一、处理数组的相关函数"><span class="toc-number">12.</span> <span class="toc-text">十一、处理数组的相关函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十二、字符串处理"><span class="toc-number">13.</span> <span class="toc-text">十二、字符串处理</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/04/19/PHP学习小结 (3)/" title="上一篇: PHP学习小结 (3)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/04/05/PHP学习小结 (1)/" title="下一篇: PHP学习小结">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/30/hello-world/">How to create a new post</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/30/How-to-Build-a-Blog-with-Hexo/">How to build your own blog with GitHub + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/30/Base64  Base32  Base16编码和解码小结/">Base64 | Base32 | Base16编码和解码小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/PHP学习小结 (3)/">PHP学习小结 (3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/PHP学习小结 (2)/">PHP学习小结 (2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/05/PHP学习小结 (1)/">PHP学习小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/Html/">HTML基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/CRC32爆破/">CRC32爆破</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 小石头
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

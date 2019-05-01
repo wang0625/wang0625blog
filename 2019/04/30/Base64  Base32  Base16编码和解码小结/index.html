@@ -7,22 +7,24 @@
   
   
   
-  <title>CRC32爆破 | 小石头</title>
+  <title>Base64 | Base32 | Base16编码和解码小结 | 小石头</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to 小石头! 前言12最近惊奇队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下 沙漏安全 正文1CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色方框括出）">
+  <meta name="description" content="Welcome to 小石头! 一.Base64简介123Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；2.能够对文本进行简单的加密 二.Base64编码规则123456所谓Base64，就是说选出64个字符----小写字母a-z、大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CRC32爆破">
-<meta property="og:url" content="http://yoursite.com/2019/03/28/CRC32爆破/index.html">
+<meta property="og:title" content="Base64 | Base32 | Base16编码和解码小结">
+<meta property="og:url" content="http://yoursite.com/2019/04/30/Base64  Base32  Base16编码和解码小结/index.html">
 <meta property="og:site_name" content="小石头">
-<meta property="og:description" content="Welcome to 小石头! 前言12最近惊奇队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下 沙漏安全 正文1CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色方框括出）">
+<meta property="og:description" content="Welcome to 小石头! 一.Base64简介123Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；2.能够对文本进行简单的加密 二.Base64编码规则123456所谓Base64，就是说选出64个字符----小写字母a-z、大">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/picture/20180224131551484.png">
-<meta property="og:image" content="http://yoursite.com/picture/QQ图片20190328221550.png">
-<meta property="og:updated_time" content="2019-04-10T13:03:12.000Z">
+<meta property="og:image" content="http://yoursite.com/picture/1.png">
+<meta property="og:image" content="http://yoursite.com/picture/2.png">
+<meta property="og:image" content="http://yoursite.com/picture/3.png">
+<meta property="og:image" content="http://yoursite.com/picture/4.png">
+<meta property="og:updated_time" content="2019-03-25T13:02:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CRC32爆破">
-<meta name="twitter:description" content="Welcome to 小石头! 前言12最近惊奇队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下 沙漏安全 正文1CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色方框括出）">
-<meta name="twitter:image" content="http://yoursite.com/picture/20180224131551484.png">
+<meta name="twitter:title" content="Base64 | Base32 | Base16编码和解码小结">
+<meta name="twitter:description" content="Welcome to 小石头! 一.Base64简介123Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；2.能够对文本进行简单的加密 二.Base64编码规则123456所谓Base64，就是说选出64个字符----小写字母a-z、大">
+<meta name="twitter:image" content="http://yoursite.com/picture/1.png">
   
     <link rel="alternative" href="/atom.xml" title="小石头" type="application/atom+xml">
   
@@ -279,11 +281,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-CRC32爆破" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Base64  Base32  Base16编码和解码小结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/28/CRC32爆破/" class="article-date">
-      <time datetime="2019-03-28T13:45:24.000Z" itemprop="datePublished">2019-03-28</time>
+      <a href="/2019/04/30/Base64  Base32  Base16编码和解码小结/" class="article-date">
+      <time datetime="2019-04-30T13:06:58.468Z" itemprop="datePublished">2019-04-30</time>
 </a>
 
     </div>
@@ -297,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CRC32爆破
+      Base64 | Base32 | Base16编码和解码小结
     </h1>
   
 
@@ -316,16 +318,15 @@
       
           
         <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最近惊奇队长在:沙漏安全上出了一道关于CRC【全称是循环冗余校验(Cyclic Redundancy Check, CRC)】的一道题，</span><br><span class="line">令众人百思不得其解，最后在小煤球学长的指导下得知可以利用CRC爆破，由于本人第一次遇到这种题目，就记录一下</span><br></pre></td></tr></table></figure>
-<p><a href="http://211.69.16.145:8000/" target="_blank" rel="noopener">沙漏安全</a></p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CRC用来校验文件是否出错但并不能用于自动纠错，就是在后面加上一小段冗余位去检测（已用红色方框括出）</span><br></pre></td></tr></table></figure>
-<p><img src="/picture/20180224131551484.png"></p>
-<h3 id="这里以破解四位CRC的压缩包为例-写一个理解之后的脚本"><a href="#这里以破解四位CRC的压缩包为例-写一个理解之后的脚本" class="headerlink" title="这里以破解四位CRC的压缩包为例    写一个理解之后的脚本"></a>这里以破解四位CRC的压缩包为例    写一个理解之后的脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line">import binascii</span><br><span class="line">import string </span><br><span class="line"></span><br><span class="line">dic=string.printable     <span class="comment">#各种打印字符</span></span><br><span class="line"></span><br><span class="line">crc = <span class="string">''</span><span class="string">'你的输入 '</span><span class="string">''</span>     <span class="comment"># 记得要以0x开头</span></span><br><span class="line">def CrackCrc(crc):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dic :</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> dic:</span><br><span class="line">                <span class="keyword">for</span> q <span class="keyword">in</span> dic:</span><br><span class="line">                    s=i+j+p+q</span><br><span class="line">                    <span class="keyword">if</span> crc == (binascii.crc32(s) &amp; 0xffffffff):</span><br><span class="line">                        <span class="built_in">print</span> s</span><br></pre></td></tr></table></figure>
-<h3 id="要特别注意"><a href="#要特别注意" class="headerlink" title="要特别注意"></a>要特别注意</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (binascii.crc32(str(i)) &amp; 0xffffffff) == crc:                                                                                                         </span><br><span class="line">	在 Python 2.x 的版本中，binascii.crc32 所计算出來的 CRC 值域为[-2^31, 2^31-1] 之间的有符号整数，为了要与一般CRC 结果作比对，需要将其转为无符号整数，所以加上&amp; 0xffffffff来进行转换。如果是 Python 3.x 的版本，其计算结果为 [0, 2^32-1] 间的无符号整数，因此不需额外加上&amp; 0xffffffff</span><br><span class="line">``` </span><br><span class="line"><span class="comment">###    下面就bugku那道多个压缩包为例，上脚本</span></span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line">import binascii</span><br><span class="line">import string </span><br><span class="line">import zipfile</span><br><span class="line"><span class="comment"># def tansnum(s):</span></span><br><span class="line"><span class="comment">#     return int(s, 16)  转十六进制</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dic=string.printable</span><br><span class="line"></span><br><span class="line">def CrackCrc(crc):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dic :</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> dic:</span><br><span class="line">                <span class="keyword">for</span> q <span class="keyword">in</span> dic:</span><br><span class="line">                    s=i+j+p+q</span><br><span class="line">                    <span class="keyword">if</span> crc == (binascii.crc32(s) &amp; 0xffffffff):</span><br><span class="line">                        <span class="built_in">print</span> s</span><br><span class="line">                        <span class="comment">#return </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def getcrc32():</span><br><span class="line">    l=[]</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> range(68):</span><br><span class="line">        file = <span class="string">'out'</span> + str(b) + <span class="string">'.zip'</span></span><br><span class="line">        f = zipfile.ZipFile(file,<span class="string">'r'</span>)</span><br><span class="line">        GetCrc = f.getinfo(<span class="string">'data.txt'</span>)</span><br><span class="line">        crc = GetCrc.CRC</span><br><span class="line">        l.append(hex(crc))</span><br><span class="line">    <span class="built_in">return</span> l</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__  == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment">#c = open('out.txt', 'w')</span></span><br><span class="line">    l = getcrc32()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">       CrackCrc(i)</span><br><span class="line">    <span class="comment">#c.close()</span></span><br></pre></td></tr></table></figure>
-<h3 id="另外还有一款很好用的6位的CRC32爆破"><a href="#另外还有一款很好用的6位的CRC32爆破" class="headerlink" title="另外还有一款很好用的6位的CRC32爆破"></a>另外还有一款很好用的6位的CRC32爆破</h3><p>附上神器：<a href="https://github.com/theonlypwner/crc32" target="_blank" rel="noopener">https://github.com/theonlypwner/crc32</a><br>具体使用方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python crc32.py reverse (0X)你的crc32密文</span><br></pre></td></tr></table></figure></p>
-<p>这里的密文记得加上0x变成16进制   即可非常迅速的爆破出对应的数据，举个例子</p>
-<p><img src="/picture/QQ图片20190328221550.png"></p>
-<p>这个CRC32爆破一旦超过六位，爆破需要花很长的时间，<a href="http://211.69.16.145:8000/" target="_blank" rel="noopener">沙漏安全</a>上就有一道题，我代码跑了两个多小时，结果进度也就达到了10%，这就从另外一个角度诠释了什么叫无法破解的密码//(ㄒoㄒ)//</p>
+<h3 id="一-Base64简介"><a href="#一-Base64简介" class="headerlink" title="一.Base64简介"></a>一.Base64简介</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：</span><br><span class="line">1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；</span><br><span class="line">2.能够对文本进行简单的加密</span><br></pre></td></tr></table></figure>
+<h3 id="二-Base64编码规则"><a href="#二-Base64编码规则" class="headerlink" title="二.Base64编码规则"></a>二.Base64编码规则</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">所谓Base64，就是说选出64个字符----小写字母a-z、大写字母A-Z、数字0-9、符号<span class="string">"+"</span>、<span class="string">"/"</span>（再加上作为垫字的<span class="string">"="</span>，实际上是65个字符）----作为一个基本字符集。然后，其他所有符号都转换成这个字符集中的字符</span><br><span class="line"> 具体来说，转换方式可以分为四步：</span><br><span class="line"> 1.将每三个字节作为一组，一共是24个二进制位</span><br><span class="line"> 2.将这24个二进制位分为四组，每个组有6个二进制位</span><br><span class="line"> 3.在每组前面加两个00，扩展成32个二进制位，即四个字节</span><br><span class="line">4.根据下表，得到扩展后的每个字节的对应符号，这就是Base64的编码值</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/1.png"></p>
+<h3 id="三-Base64编码的一个例子"><a href="#三-Base64编码的一个例子" class="headerlink" title="三.Base64编码的一个例子"></a>三.Base64编码的一个例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">举一个具体的实例，演示英语单词Man如何转成Base64编码：</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/2.png"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">备注：</span><br><span class="line"></span><br><span class="line">1.Base64将三个字节转化成四个字节，因此Base64编码后的文本，会比原文本大出三分之一左右</span><br><span class="line"></span><br><span class="line">2.对于不满3个字节的东东，就需要加上base64编码中的垫字符来补充</span><br><span class="line"></span><br><span class="line">3.Base64编码是可逆的，所以有Base64编码encode和解码decode</span><br><span class="line"></span><br><span class="line">4.Base64主要不是加密，它主要的用途是把一些二进制数转成普通字符用于网络传输（因为一些二进制字符在传输协议中属于控制字符，不能直接传送）。另外，还有一些系统中只能使用ASCII字符。Base64就是用来将非ASCII字符的数据转换成ASCII字符的一种方法。base64其实不是安全领域下的加密解密算法。虽然有时候经常看到所谓的base64加密解密。其实base64只能算是一个编码算法，对数据内容进行编码来适合传输。虽然base64编码过后原文也变成不能看到的字符格式，但是这种方式很初级，很简单</span><br></pre></td></tr></table></figure></p>
+<h3 id="四-Base32和Base16"><a href="#四-Base32和Base16" class="headerlink" title="四.Base32和Base16"></a>四.Base32和Base16</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在Base家族中还有Base32和Base16，其实Base32/Base16和Base64目的是一样的，只是具体的编码规则的不一样罢了</span><br><span class="line">Base32编码将二进制文件转换成由32个ASCII字符组成的文本</span><br><span class="line">Base16编码则将二进制文件转换成由16个字符组成的文本</span><br><span class="line">附上Base32编码映射表如下：</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/3.png"></p>
+<p><img src="/picture/4.png"></p>
+<p>More info: <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1564047618&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener">小石头</a></p>
 
       
     </div>
@@ -334,13 +335,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/28/CRC32爆破/">CRC32爆破</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/30/Base64  Base32  Base16编码和解码小结/">Base64 | Base32 | Base16编码和解码小结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 小石头 的个人博客">小石头</a></p>
-        <p><span>发布时间:</span>2019年03月28日 - 21时45分</p>
-        <p><span>最后更新:</span>2019年04月10日 - 21时03分</p>
+        <p><span>发布时间:</span>2019年04月30日 - 21时06分</p>
+        <p><span>最后更新:</span>2019年03月25日 - 21时02分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/28/CRC32爆破/" title="CRC32爆破">http://yoursite.com/2019/03/28/CRC32爆破/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/28/CRC32爆破/　　作者: 小石头" title></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/30/Base64  Base32  Base16编码和解码小结/" title="Base64 | Base32 | Base16编码和解码小结">http://yoursite.com/2019/04/30/Base64  Base32  Base16编码和解码小结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/04/30/Base64  Base32  Base16编码和解码小结/　　作者: 小石头" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -351,15 +352,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/03/29/Html/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/30/How-to-Build-a-Blog-with-Hexo/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          HTML基础知识
+          How to build your own blog with GitHub + hexo
         
       </div>
     </a>
   
+  
+    <a href="/2019/04/19/PHP学习小结 (3)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PHP学习小结 (3)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -369,7 +375,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正文"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#这里以破解四位CRC的压缩包为例-写一个理解之后的脚本"><span class="toc-number">3.</span> <span class="toc-text">这里以破解四位CRC的压缩包为例    写一个理解之后的脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#要特别注意"><span class="toc-number">4.</span> <span class="toc-text">要特别注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#另外还有一款很好用的6位的CRC32爆破"><span class="toc-number">5.</span> <span class="toc-text">另外还有一款很好用的6位的CRC32爆破</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-Base64简介"><span class="toc-number">1.</span> <span class="toc-text">一.Base64简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-Base64编码规则"><span class="toc-number">2.</span> <span class="toc-text">二.Base64编码规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-Base64编码的一个例子"><span class="toc-number">3.</span> <span class="toc-text">三.Base64编码的一个例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-Base32和Base16"><span class="toc-number">4.</span> <span class="toc-text">四.Base32和Base16</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -442,13 +448,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/29/Html/" title="上一篇: HTML基础知识">
+            <a href="/2019/04/30/How-to-Build-a-Blog-with-Hexo/" title="上一篇: How to build your own blog with GitHub + hexo">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/04/19/PHP学习小结 (3)/" title="下一篇: PHP学习小结 (3)">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/30/hello-world/">How to create a new post</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/30/How-to-Build-a-Blog-with-Hexo/">How to build your own blog with GitHub + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/30/Base64  Base32  Base16编码和解码小结/">Base64 | Base32 | Base16编码和解码小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/19/PHP学习小结 (3)/">PHP学习小结 (3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/12/PHP学习小结 (2)/">PHP学习小结 (2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/05/PHP学习小结 (1)/">PHP学习小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/29/Html/">HTML基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/28/CRC32爆破/">CRC32爆破</a></li></ul>
