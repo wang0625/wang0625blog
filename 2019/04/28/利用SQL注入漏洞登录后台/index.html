@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8">
   
   <title>利用SQL注入漏洞登录后台 | 小石头</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
   <meta name="description" content="Welcome to 小石头! 前言所谓SQL注入，就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令，比如先前的很多影视网站泄露VIP会员密码大多就是通过WEB表单递交查询字符暴出的，这类表单特别容易受到SQL注入式攻击 什么时候最易受到sql注入攻击当应用程序使用输入内容来构造动态sql语句以访问数据库时，会发生sql注入攻击。如果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用SQL注入漏洞登录后台">
@@ -21,93 +22,125 @@
 <meta name="twitter:description" content="Welcome to 小石头! 前言所谓SQL注入，就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令，比如先前的很多影视网站泄露VIP会员密码大多就是通过WEB表单递交查询字符暴出的，这类表单特别容易受到SQL注入式攻击 什么时候最易受到sql注入攻击当应用程序使用输入内容来构造动态sql语句以访问数据库时，会发生sql注入攻击。如果">
 <meta name="twitter:image" content="http://yoursite.com/picture/JQX[PHC8XF7~Z1__P$9U6EP.png">
   
-    <link rel="alternative" href="/atom.xml" title="小石头" type="application/atom+xml">
   
+    <link rel="icon" href="/favicon.ico">
   
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
   
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
   
   
 
 </head>
 </html>
 <body>
-<div id="container">
-  <div id="wrap">
-    <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <nav id="upper-nav" class="inner">
-      <a id="main-nav-toggle" class="nav-icon"></a>
-      <div class="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        
-          <a id="nav-github" class="nav-icon" href="https://wang0625.github.io/"></a>
-        
-      </div>
-    </nav>
-    <div id="header-title">
-      
-        <h1 id="blog-title-wrap">
-          <a href="/" id="blog-title">My Blog</a>
-        </h1>
-      
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
     </div>
-    <div id="contenedor">
-      <ul class="cube">
-        <li class="cara">MyLogo</li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-      </ul>
-    </div>
-    <nav id="main-nav">
-      
-        <a class="main-nav-link" href="/">Home</a>
-      
-        <a class="main-nav-link" href="/archives">Archives</a>
-      
-        <a class="main-nav-link" href="/about">About</a>
-      
-      <a class="main-nav-link st-search-show-outputs">Search</a>
-    </nav>
-  </div>
 </header>
-
-    <div class="outer">
-      <section id="main"><article id="post-利用SQL注入漏洞登录后台" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <h3 href="/2019/04/28/利用SQL注入漏洞登录后台/" class="article-date">
-  <time datetime="2019-04-28T13:45:24.000Z" itemprop="datePublished">2019-04-28</time>
-</h3>
-    
-  </div>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-利用SQL注入漏洞登录后台" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-  <div class="curve-down">
-  <div class="fill-content">
-    
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="post-title" itemprop="name">
       利用SQL注入漏洞登录后台
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-04-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
+          
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        
-        <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
+            
+            <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>所谓SQL注入，就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令，比如先前的很多影视网站泄露VIP会员密码大多就是通过WEB表单递交查询字符暴出的，这类表单特别容易受到SQL注入式攻击</p>
 <h3 id="什么时候最易受到sql注入攻击"><a href="#什么时候最易受到sql注入攻击" class="headerlink" title="什么时候最易受到sql注入攻击"></a>什么时候最易受到sql注入攻击</h3><p>当应用程序使用输入内容来构造动态sql语句以访问数据库时，会发生sql注入攻击。如果代码使用存储过程，而这些存储过程作为包含未筛选的用户输入的 字符串来传递，也会发生sql注入。sql注入可能导致攻击者使用应用程序登陆在数据库中执行命令。如果应用程序使用特权过高的帐户连接到数据库，这种问 题会变得很严重。在某些表单中，用户输入的内容直接用来构造动态sql命令，或者作为存储过程的输入参数，这些表单特别容易受到sql注入的攻击。而许多 网站程序在编写时，没有对用户输入的合法性进行判断或者程序中本身的变量处理不当，使应用程序存在安全隐患。这样，用户就可以提交一段数据库查询的代码， 根据程序返回的结果，获得一些敏感的信息或者控制整个服务器，于是sql注入就发生了</p>
 <h3 id="如何防止黑客利用SQL注入漏洞登录后台"><a href="#如何防止黑客利用SQL注入漏洞登录后台" class="headerlink" title="如何防止黑客利用SQL注入漏洞登录后台"></a>如何防止黑客利用SQL注入漏洞登录后台</h3><p>1.永远不要信任用户的输入，对用户的输入进行校验，可以通过正则表达式，或限制长度；对单引号和双”-“进行转换等</p>
@@ -122,140 +155,286 @@
 <h3 id="数据参数化解决代码漏洞"><a href="#数据参数化解决代码漏洞" class="headerlink" title="数据参数化解决代码漏洞"></a>数据参数化解决代码漏洞</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    header(&apos;content-type:text/html;charset=utf-8&apos;);</span><br><span class="line">    error_reporting(E_ALL ^ E_NOTICE);</span><br><span class="line">    //初次访问</span><br><span class="line">    if ( ( $_POST[&apos;username&apos;] != null ) &amp;&amp; ( $_POST[&apos;password&apos;] != null ) ) &#123;</span><br><span class="line">        $userName = $_POST[&apos;username&apos;];</span><br><span class="line">        $password = $_POST[&apos;password&apos;];</span><br><span class="line">        $con = mysqli_connect(&apos;localhost&apos;,&apos;root&apos;,&apos;990625&apos;);</span><br><span class="line">        if (!$con) &#123; </span><br><span class="line">        die(&apos;数据库连接失败&apos;.$mysql_error()); </span><br><span class="line">        &#125; </span><br><span class="line">        mysqli_select_db($con,&quot;wang1&quot;);</span><br><span class="line"></span><br><span class="line">        $sql = &quot;select * from wang2 where username = &apos;&#123;$userName&#125;&apos; &quot;;</span><br><span class="line">        $res = mysqli_query($con,$sql);</span><br><span class="line">        $n=0;</span><br><span class="line">    while($arr = mysqli_fetch_array($res))</span><br><span class="line">    &#123;if($arr[&apos;username&apos;]===$_POST[&apos;username&apos;]&amp;&amp;$arr[&apos;password&apos;]===$_POST[&apos;password1&apos;])</span><br><span class="line">        &#123;$n++;</span><br><span class="line">    break;&#125;&#125;</span><br><span class="line">        if($n!=0)&#123;</span><br><span class="line">            if ($arr[&apos;password&apos;] == $password)</span><br><span class="line">            &#123;                 </span><br><span class="line">                setcookie(&apos;username&apos;,$userName,time()+36000000000000000000000000000000000000000000000,&apos;/&apos;);</span><br><span class="line">                setcookie(&apos;password&apos;,$password,time()+360000000000000000000000000000000000000000000000,&apos;/&apos;);</span><br><span class="line">                header(&apos;Location: https://wang0625.github.io/&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                echo&quot;&lt;script&gt;alert(&apos;用户名或密码错误！&apos;);location.href = &apos;http://localhost/login.html&apos;;&lt;/script&gt;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            echo&quot;&lt;script&gt;alert(&apos;用户名不存在！&apos;);location.href = &apos;http://localhost/login.html&apos;;&lt;/script&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        echo&quot;&lt;script&gt;alert(&apos;用户名和密码不能为空！&apos;);location.href = &apos;http://localhost/login.html&apos;;&lt;/script&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    //再次访问</span><br><span class="line">    if ( ($_COOKIE[&apos;username&apos;]!= null)&amp;&amp;($_COOKIE[&apos;password&apos;]!= null) ) &#123;</span><br><span class="line">        $userName = $_COOKIE[&apos;username&apos;];</span><br><span class="line">        $password = $_COOKIE[&apos;password&apos;];</span><br><span class="line">        $con = mysqli_connect(&apos;localhost&apos;,&apos;root&apos;,&apos;990625&apos;,&apos;ymh&apos;);</span><br><span class="line">        $res = mysqli_query($con,&quot;select * from wang1&quot;);</span><br><span class="line">        $n=0;</span><br><span class="line">    while($arr = mysqli_fetch_array($res))</span><br><span class="line">    &#123;if($arr[&apos;username&apos;]===$_POST[&apos;username&apos;]&amp;&amp;$arr[&apos;password&apos;]===$_POST[&apos;password1&apos;])</span><br><span class="line">        &#123;$n++;</span><br><span class="line">    break;&#125;&#125;</span><br><span class="line">    if($n!=0)</span><br><span class="line">    &#123;if ($row[&apos;password&apos;] == $password) &#123;</span><br><span class="line">            header(&apos;Location: https://wang0625.github.io/&apos; . &quot;?username=&#123;$userName&#125;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            echo&quot;&lt;script&gt;location.href = &apos;http://localhost/login.html&apos;;&lt;/script&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="/picture/JQX[PHC8XF7~Z1__P$9U6EP.png"><br>这时我们只需要把数据库中返回的数据用一个变量进行储存，然后与用户上传的的数据进行对比然后进行判，这个过程中并不直接涉及到数据库中的数据，也没有办法惊醒更改，从而保证了数据库数据的安全</p>
 
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年05月07日 19:12</p>
+        <p>原始链接： <a class="post-url" href="/2019/04/28/利用SQL注入漏洞登录后台/" title="利用SQL注入漏洞登录后台">http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="小石头">
+                小石头
+            </a>
+        </footer>
+    </div>
+</div>
+
       
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
     </div>
     <footer class="article-footer">
-      <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/" data-id="cjwqddcpg000bw0wb5plcynt9" class="article-share-link">Share</a>
         
-      </div>
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/&title=《利用SQL注入漏洞登录后台》 — 小石头&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/&title=《利用SQL注入漏洞登录后台》 — 小石头&source=世间所有的相遇，都是久别重逢" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《利用SQL注入漏洞登录后台》 — 小石头&url=http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/04/28/利用SQL注入漏洞登录后台/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
     </footer>
   </div>
-  </div>
-  </div>
-  
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么时候最易受到sql注入攻击"><span class="post-toc-text">什么时候最易受到sql注入攻击</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何防止黑客利用SQL注入漏洞登录后台"><span class="post-toc-text">如何防止黑客利用SQL注入漏洞登录后台</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下面将要介绍如何利用数据参数化来保护数据库的安全"><span class="post-toc-text">下面将要介绍如何利用数据参数化来保护数据库的安全</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这是未进行数据参数化处理的完整网页登录的后台验证代码"><span class="post-toc-text">这是未进行数据参数化处理的完整网页登录的后台验证代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#漏洞代码图："><span class="post-toc-text">漏洞代码图：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据参数化解决代码漏洞"><span class="post-toc-text">数据参数化解决代码漏洞</span></a></li></ol>
+        </nav>
+    </aside>
     
+
 <nav id="article-nav">
   
     <a href="/2019/05/21/XSS攻击/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
           XSS攻击
         
-      </div>
+      </span>
     </a>
   
   
     <a href="/2019/04/19/PHP学习小结 (3)/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">PHP学习小结 (3)</div>
+      <span class="article-nav-title">PHP学习小结 (3)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
 </nav>
 
-  
-</article>
 
 
+    
 </section>
-      
-      <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
         
-          <li>
-            <a href="/2019/06/09/How-to-Build-a-Blog-with-Hexo/">How to build your own blog with GitHub + hexo</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/09/hello-world/">How to create a new post</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/09/Base64  Base32  Base16编码和解码小结/">Base64 | Base32 | Base16编码和解码小结</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/21/XSS攻击/">XSS攻击</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/28/利用SQL注入漏洞登录后台/">利用SQL注入漏洞登录后台</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-</aside>
-      
-    </div>
-    <footer id="footer">
-  
+      </div>
+      <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
       &copy; 2019 小石头<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      .
-      Theme by <a href="https://github.com/sun11/hexo-theme-paperbox" target="_blank">Paperbox</a>
+      </p>
     </div>
   </div>
 </footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
   </div>
-  <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-  <a href="#search" class="mobile-nav-link st-search-show-outputs">Search</a>
-</nav>
-
-  
-
-<!-- totop start -->
-<div id="totop">
-	<a title="To Top"></a>
-</div>
-<!-- totop end -->
-
-<!-- swiftype search start -->
-
-<!-- swiftype search end -->
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-</div>
 </body>
 </html>

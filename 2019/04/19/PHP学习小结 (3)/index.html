@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8">
   
   <title>PHP学习小结 (3) | 小石头</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
   <meta name="description" content="Welcome to 小石头 前言应惊奇队长的要求团队成员需要自学成员需要在网上自学PHP，我在网上通过孙胜利的PHP从入门到精通——含基础入门、MySQL、项目实战进行了学习 一、正则表达式12345678910111213141516171819202122232425262728293031323334353637381、正则表达式语法规则		描述了一类字符串的特征，然后通过这个特征可以配合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP学习小结 (3)">
@@ -19,233 +20,411 @@
 <meta name="twitter:title" content="PHP学习小结 (3)">
 <meta name="twitter:description" content="Welcome to 小石头 前言应惊奇队长的要求团队成员需要自学成员需要在网上自学PHP，我在网上通过孙胜利的PHP从入门到精通——含基础入门、MySQL、项目实战进行了学习 一、正则表达式12345678910111213141516171819202122232425262728293031323334353637381、正则表达式语法规则		描述了一类字符串的特征，然后通过这个特征可以配合">
   
-    <link rel="alternative" href="/atom.xml" title="小石头" type="application/atom+xml">
   
+    <link rel="icon" href="/favicon.ico">
   
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
   
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
   
   
 
 </head>
 </html>
 <body>
-<div id="container">
-  <div id="wrap">
-    <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <nav id="upper-nav" class="inner">
-      <a id="main-nav-toggle" class="nav-icon"></a>
-      <div class="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        
-          <a id="nav-github" class="nav-icon" href="https://wang0625.github.io/"></a>
-        
-      </div>
-    </nav>
-    <div id="header-title">
-      
-        <h1 id="blog-title-wrap">
-          <a href="/" id="blog-title">My Blog</a>
-        </h1>
-      
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
     </div>
-    <div id="contenedor">
-      <ul class="cube">
-        <li class="cara">MyLogo</li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-        <li class="cara"></li>
-      </ul>
-    </div>
-    <nav id="main-nav">
-      
-        <a class="main-nav-link" href="/">Home</a>
-      
-        <a class="main-nav-link" href="/archives">Archives</a>
-      
-        <a class="main-nav-link" href="/about">About</a>
-      
-      <a class="main-nav-link st-search-show-outputs">Search</a>
-    </nav>
-  </div>
 </header>
-
-    <div class="outer">
-      <section id="main"><article id="post-PHP学习小结 (3)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <h3 href="/2019/04/19/PHP学习小结 (3)/" class="article-date">
-  <time datetime="2019-04-19T05:45:24.000Z" itemprop="datePublished">2019-04-19</time>
-</h3>
-    
-  </div>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-PHP学习小结 (3)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
-  <div class="curve-down">
-  <div class="fill-content">
-    
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
+    <h1 class="post-title" itemprop="name">
       PHP学习小结 (3)
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-04-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
+          
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        
-        <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a></p>
+            
+            <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>应惊奇队长的要求团队成员需要自学成员需要在网上自学PHP，我在网上通过孙胜利的<a href="https://www.bilibili.com/video/av37494327?from=search&amp;seid=8075339785236418301" target="_blank" rel="noopener">PHP从入门到精通——含基础入门、MySQL、项目实战</a>进行了学习</p>
 <h3 id="一、正则表达式"><a href="#一、正则表达式" class="headerlink" title="一、正则表达式"></a>一、正则表达式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">1、正则表达式语法规则</span><br><span class="line">		描述了一类字符串的特征，然后通过这个特征可以配合一些特定的函数，来完成对字符串更加复杂的一系列操作！ </span><br><span class="line">		普通字符和特殊字符组成的一个字符串</span><br><span class="line">2、定界符</span><br><span class="line">	我们一般习惯使用正斜线<span class="string">"/"</span>作为定界的字符,前后一致</span><br><span class="line">3、元字符</span><br><span class="line">	\d	匹配任意一个十进制数字，等价于[0-9]</span><br><span class="line">	\D	匹配任意一个除十进制数字以外字符,等价于[^0-9]</span><br><span class="line">	\s	匹配任意一个空白字符,比如换页符、换行符、回车符、制表符、垂直制表符</span><br><span class="line">	\S	匹配除空白字符以外的任何一个字符</span><br><span class="line">	\w	匹配任意一个数字或字母或下划线</span><br><span class="line">	\W	匹配除数字、字母、下划线以外的任意一个字符</span><br><span class="line">	.	匹配除换行符以外的任意一个字符</span><br><span class="line">	</span><br><span class="line">	*	匹配0次、或1次、或多次其前面的字符</span><br><span class="line">	+	匹配1次或多次其前面的字符</span><br><span class="line">	?	匹配0次或1次其前面的字符</span><br><span class="line">	&#123;n&#125;	表示其前面字符恰好出现n次</span><br><span class="line">	&#123;n,&#125;	表示其前面字符出现不少于n次</span><br><span class="line">	&#123;n,m&#125;	表示其前面的字符至少出现n次，最多出现m次</span><br><span class="line">	</span><br><span class="line">	^或\A	匹配字符串开始位置</span><br><span class="line">	$或者\Z	匹配字符串的结束位置</span><br><span class="line">	</span><br><span class="line">	|	匹配两个或多个模式</span><br><span class="line">	</span><br><span class="line">	[]	匹配方括号中的任意一个字符</span><br><span class="line">	[^]	匹配除方括号中字符以外的任意一个字符</span><br><span class="line">	</span><br><span class="line">	()	将括号中作为一个整体以便将其中的内容获取到</span><br><span class="line">		在我们的正则表达式中 可以使用圆括号来将某一段括起来，在圆括号的后面部分，我们可以使用</span><br><span class="line">		\\数字 来代表圆括号部分所匹配到的内容！</span><br><span class="line">4、模式修正符</span><br><span class="line">	常见模式修正符</span><br><span class="line">	i	在和模式进行匹配时不区分大小写</span><br><span class="line">	m	多行匹配，如果目标字符串 中没有<span class="string">"\n"</span>字符, 或者模式中没有出现^或$, 设置这个修饰符不产生任何影响</span><br><span class="line">	s	如果设定了此修正符，那么.将匹配所有的字符包括换行符</span><br><span class="line">	U	禁止贪婪匹配</span><br></pre></td></tr></table></figure>
 <h3 id="二、日期与时间"><a href="#二、日期与时间" class="headerlink" title="二、日期与时间"></a>二、日期与时间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1、设置时区</span><br><span class="line">	date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);//设置时区</span><br><span class="line">2、获取当前Unix时间戳</span><br><span class="line">	time()</span><br><span class="line">3、获取指定时间的Unix时间戳</span><br><span class="line">	mktime()</span><br><span class="line">	date_default_timezone_set(<span class="string">'Asia/Shanghai'</span>);//设置时区</span><br><span class="line">	<span class="variable">$nowTime</span>=time();</span><br><span class="line">	<span class="variable">$time1</span>=mktime(0,0,0,10,1,2014);//取得一个日期的 Unix 时间戳</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">'距离2014年国庆还有'</span>.((<span class="variable">$time1</span>-<span class="variable">$nowTime</span>)/60/60/24).<span class="string">'天'</span>;</span><br><span class="line">4、从Unix时间戳取得时间日期信息</span><br><span class="line">	date()格式化一个本地时间／日期</span><br><span class="line">	第一个参数:必填,写上你所需要的时间日期的格式,把format 字符放在第一个参数里面会被转换成对应的信息,其他的字符还是原来的样子</span><br><span class="line">	date(<span class="string">'Y-m-d G:i:s'</span>)</span><br><span class="line">	自定义格式化Unix时间戳 为指定的时间格式!</span><br><span class="line">5、获取Unix时间戳和微秒数</span><br><span class="line">	microtime() 返回当前 Unix 时间戳和微秒数</span><br><span class="line">	var_dump(microtime());</span><br><span class="line">	var_dump(microtime(<span class="literal">true</span>));</span><br></pre></td></tr></table></figure>
 <h3 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">学前了解：</span><br><span class="line">	在PHP中可以通过GD库处理图像</span><br><span class="line">创建一个图像应该完成如下所示的四个基本步骤：</span><br><span class="line">	1.创建图像</span><br><span class="line">	2.绘制图像</span><br><span class="line">	3.输出图像</span><br><span class="line">		header函数注意点</span><br><span class="line">		在该函数之前，不能输出任何内容</span><br><span class="line">		</span><br><span class="line">		在我们的PHP代码 的函数里面，我们使用的/开头的路径 这个/不是指 web根目录,而是操作系统的 文件的根目录!</span><br><span class="line">		</span><br><span class="line">	4.释放资源</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">设计验证码的步骤：</span><br><span class="line"></span><br><span class="line">水印</span><br><span class="line"></span><br><span class="line">缩放与裁剪</span><br><span class="line">	imagecopyresampled()函数</span><br><span class="line">	采样某个图像资源的 某一部分 到 另外一个图像资源上面去</span><br></pre></td></tr></table></figure>
 <h3 id="四、文件与目录操作"><a href="#四、文件与目录操作" class="headerlink" title="四、文件与目录操作"></a>四、文件与目录操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">1、判断普通文件和目录</span><br><span class="line">	1.is_file()//判断给定文件名是否为一个正常的文件</span><br><span class="line">	2.is_dir()//判断给定文件名是否是一个目录</span><br><span class="line">2、文件的属性</span><br><span class="line">	1.file_exists()//检查文件或目录是否存在</span><br><span class="line">	2.filesize()//取得普通文件大小</span><br><span class="line">	3.is_readable()//判断给定文件名是否可读</span><br><span class="line">	4.is_writable()//判断给定的文件名是否可写</span><br><span class="line">	5.filectime()//获取文件的创建时间</span><br><span class="line">	6.filemtime()//获取文件的修改时间</span><br><span class="line">	7.fileatime()//取得文件的上次访问时间</span><br><span class="line">	8.stat()//获取文件大部分属性值</span><br><span class="line">3、目录的基本操作</span><br><span class="line">	1.basename()//返回路径中的文件名部分</span><br><span class="line">	2.dirname()//返回路径中的目录部分</span><br><span class="line">	3.pathinfo()//返回文件路径的信息</span><br><span class="line">	4.opendir()//打开目录句柄</span><br><span class="line">	5.readdir()//从目录句柄中读取条目,返回目录中下一个文件的文件名</span><br><span class="line">	6.rewinddir()//倒回目录句柄</span><br><span class="line">	7.closedir()//关闭目录句柄</span><br><span class="line">	8.mkdir()//新建目录</span><br><span class="line">	9.rmdir()//删除指定的空目录</span><br><span class="line">	10.scandir()//列出指定路径中的文件和目录</span><br><span class="line">4、文件的基本操作</span><br><span class="line">	1.fopen()//打开文件或者 URL</span><br><span class="line">	2.fread()//读取文件</span><br><span class="line">	3.fgets()//从文件指针中读取一行</span><br><span class="line">	4.feof()//测试文件指针是否到了文件结束的位置</span><br><span class="line">	5.fwrite()//写入文件</span><br><span class="line">	6.rewind()//倒回文件指针的位置</span><br><span class="line">	7.flock()//轻便的咨询文件锁定</span><br><span class="line">	8.ftruncate()//将文件截断到给定的长度</span><br><span class="line">	9.fclose()//关闭一个已打开的文件指针</span><br><span class="line">	10.file() //把整个文件读入一个数组中</span><br><span class="line">	11.copy()//拷贝文件</span><br><span class="line">	12.unlink()//删除文件</span><br><span class="line">	13.file_get_contents()//将整个文件读入一个字符串</span><br><span class="line">	14.file_put_contents()//将字符串写入文件中</span><br><span class="line">	15.rename()//重命名一个文件或目录</span><br><span class="line">	16.readfile()//读入一个文件并写入到输出缓冲</span><br><span class="line">5、文件的上传</span><br><span class="line">	文件的上传的过程这些细节我们是不需要管的，都是自动的，上传的文件默认是放在一个临时的目录里面的，我们要做的就是把这些临时目录</span><br><span class="line">	里面的文件移动到我们需要的地方就OK啦！</span><br><span class="line">6、文件的下载</span><br><span class="line">	获取文件的MIME类型</span><br><span class="line">	http://localhost/demo10_4/index.php</span><br><span class="line">	就相当于</span><br><span class="line">	localhost/demo10_4/a.rar</span><br></pre></td></tr></table></figure>
 
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年06月10日 19:20</p>
+        <p>原始链接： <a class="post-url" href="/2019/04/19/PHP学习小结 (3)/" title="PHP学习小结 (3)">http://yoursite.com/2019/04/19/PHP学习小结 (3)/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="小石头">
+                小石头
+            </a>
+        </footer>
+    </div>
+</div>
+
       
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
     </div>
     <footer class="article-footer">
-      <div class="article-footer-content">
         
-        <a data-url="http://yoursite.com/2019/04/19/PHP学习小结 (3)/" data-id="cjwqddcot0007w0wbcqoci1ex" class="article-share-link">Share</a>
         
-      </div>
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/04/19/PHP学习小结 (3)/&title=《PHP学习小结 (3)》 — 小石头&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/04/19/PHP学习小结 (3)/&title=《PHP学习小结 (3)》 — 小石头&source=世间所有的相遇，都是久别重逢" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/19/PHP学习小结 (3)/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP学习小结 (3)》 — 小石头&url=http://yoursite.com/2019/04/19/PHP学习小结 (3)/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/04/19/PHP学习小结 (3)/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/04/19/PHP学习小结 (3)/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
     </footer>
   </div>
-  </div>
-  </div>
-  
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、正则表达式"><span class="post-toc-text">一、正则表达式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、日期与时间"><span class="post-toc-text">二、日期与时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、图像处理"><span class="post-toc-text">三、图像处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、文件与目录操作"><span class="post-toc-text">四、文件与目录操作</span></a></li></ol>
+        </nav>
+    </aside>
     
+
 <nav id="article-nav">
   
     <a href="/2019/04/28/利用SQL注入漏洞登录后台/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
           利用SQL注入漏洞登录后台
         
-      </div>
+      </span>
     </a>
   
   
     <a href="/2019/04/12/PHP学习小结 (2)/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">PHP学习小结 (2)</div>
+      <span class="article-nav-title">PHP学习小结 (2)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
 </nav>
 
-  
-</article>
 
 
+    
 </section>
-      
-      <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
         
-          <li>
-            <a href="/2019/06/09/How-to-Build-a-Blog-with-Hexo/">How to build your own blog with GitHub + hexo</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/09/hello-world/">How to create a new post</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/09/Base64  Base32  Base16编码和解码小结/">Base64 | Base32 | Base16编码和解码小结</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/21/XSS攻击/">XSS攻击</a>
-          </li>
-        
-          <li>
-            <a href="/2019/04/28/利用SQL注入漏洞登录后台/">利用SQL注入漏洞登录后台</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-  
-</aside>
-      
-    </div>
-    <footer id="footer">
-  
+      </div>
+      <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
       &copy; 2019 小石头<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      .
-      Theme by <a href="https://github.com/sun11/hexo-theme-paperbox" target="_blank">Paperbox</a>
+      </p>
     </div>
   </div>
 </footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
   </div>
-  <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-  <a href="#search" class="mobile-nav-link st-search-show-outputs">Search</a>
-</nav>
-
-  
-
-<!-- totop start -->
-<div id="totop">
-	<a title="To Top"></a>
-</div>
-<!-- totop end -->
-
-<!-- swiftype search start -->
-
-<!-- swiftype search end -->
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-</div>
 </body>
 </html>
