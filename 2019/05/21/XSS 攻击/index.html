@@ -17,15 +17,15 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/picture/D8%600DDQX7QZG[B%7D(68A]%7B0O.png">
 <meta property="og:image" content="http://yoursite.com/picture/O7X626SZC)58HBEBE@I~S[M.png">
-<meta property="og:image" content="http://yoursite.com/picture/_$UAVOY%7DAR9A2T8$T)89_CA.png">
+<meta property="og:image" content="http://yoursite.com/picture/99.png">
 <meta property="og:image" content="http://yoursite.com/picture/@%7BT9[2%605%60CZQS(C)$$WZAHU.png">
 <meta property="og:image" content="http://yoursite.com/picture/O78ZI7K0D~PA]9EF_E9UL9Q.png">
 <meta property="og:image" content="http://yoursite.com/picture/20161227141714142.png">
-<meta property="og:image" content="http://yoursite.com/picture/]LD%5X3%$3VE)B@%7BVG%600LL7.png">
+<meta property="og:image" content="http://yoursite.com/picture/100.png">
 <meta property="og:image" content="http://yoursite.com/picture/]$[D~Y6~G)]8WTIUT75BOGF.png">
-<meta property="og:image" content="http://yoursite.com/picture/%7D2[C[%WA[GP$0P5MZ[BKZ6Y.png">
+<meta property="og:image" content="http://yoursite.com/picture/101.png">
 <meta property="og:image" content="http://yoursite.com/picture/DOB$M_42%60N8$7M6BR%7B88W8V.png">
-<meta property="og:updated_time" content="2019-06-11T11:42:02.818Z">
+<meta property="og:updated_time" content="2019-06-11T12:00:48.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS 攻击">
 <meta name="twitter:description" content="Welcome to 小石头 前言本小白前不久学习了关于XSS的一些小知识，在这里简单的做一些记录其次学长给推荐了一个非常有趣的XSS练习网站—–XSS平台 一、关于XSSXSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意WEB用户将代码植入到提供给">
@@ -155,15 +155,15 @@
 <h3 id="二、XSS的危害包括"><a href="#二、XSS的危害包括" class="headerlink" title="二、XSS的危害包括"></a>二、XSS的危害包括</h3><p>   1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>   2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>   3、盗窃企业重要的具有商业价值的资料<br>   4、非法转账<br>   6、网站挂马<br>   7、控制受害者机器向其它网站发起攻击</p>
 <h3 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h3><p>XSS大致可以分为三类：<br>                  1、反射型：经过后端，不经过数据库<br>                  2、存储型：经过后端，经过数据库<br>                  3、DOM：不经过后端,DOM—basedXSS漏洞是基于文档对象模型Document的一种漏洞,dom-xss是通过url传入参数去控制触发</p>
 <h3 id="四、文件与目录操作"><a href="#四、文件与目录操作" class="headerlink" title="四、文件与目录操作"></a>四、文件与目录操作</h3><p>1、反射型：<br>        在Notepad++上新建一个xss.html,并写入以下PHP代码：<br>        <img src="/picture/D8`0DDQX7QZG[B}(68A]{0O.png"><br>        在这串PHP代码中包含了一个表单，用于向页面发送GET请求，并且其中包含有一个名为xss的参数。<br>        在执行的过程当中PHP会读取XSS参数，当判定XSS参数的值不为空的时候页面会自动打印出XSS参数中所包含的数据。<br>        例如这串代码：在代码执行的过程中发现xss参数中的之后不为空，则页面会打印出XSS参数包含的值：<br>        <img src="/picture/O7X626SZC)58HBEBE@I~S[M.png"><br>        由此可见，这里并没有对用户传入的数据进行任何过滤，如果网站当中存在这类漏洞的情况，那么就可以通过xss来把网站的用户信息盗取出来</p>
-<p>2.存储型：<br>     (1)在将上边的xss.php文件的内容改为（同时数据库中需要配置相应的表)：<br>        <img src="/picture/_$UAVOY}AR9A2T8$T)89_CA.png"><br>        这时我们发现用户上传的数据并没有进行处理，但是上传的数据不会直接显示在页面之中，而是插入到了数据库当中,这时如果某些用户利用这个漏洞，就可以把一些恶意代码导入其中，从而进行窃取用户数据<br>     (2)现在新建一个名为show.php的文件，并且输入以下代码：<br>        <img src="/picture/@{T9[2`5`CZQS(C)$$WZAHU.png"><br>        这串代码进去到数据库当中，并且把数据库中相应的数据打印出来</p>
+<p>2.存储型：<br>     (1)在将上边的xss.php文件的内容改为（同时数据库中需要配置相应的表)：<br>         <img src="/picture/99.png"><br>        这时我们发现用户上传的数据并没有进行处理，但是上传的数据不会直接显示在页面之中，而是插入到了数据库当中,这时如果某些用户利用这个漏洞，就可以把一些恶意代码导入其中，从而进行窃取用户数据<br>     (2)现在新建一个名为show.php的文件，并且输入以下代码：<br>        <img src="/picture/@{T9[2`5`CZQS(C)$$WZAHU.png"><br>        这串代码进去到数据库当中，并且把数据库中相应的数据打印出来</p>
 <p>3.dom-xss：<br>         将上边的xss.php改为：<br>        <img src="/picture/O78ZI7K0D~PA]9EF_E9UL9Q.png"><br>        <img src="/picture/20161227141714142.png"><br>        DOM-XSS 的数据流向是：URL–&gt;浏览器 </p>
 <p>总结: 在易用上，存储型XSS &gt; DOM - XSS &gt; 反射型 XSS。</p>
 <p>PS：反射型xss和dom-xss都需要在url加入js代码才能够触发。</p>
-<h3 id="四、文件与目录操作-1"><a href="#四、文件与目录操作-1" class="headerlink" title="四、文件与目录操作"></a>四、文件与目录操作</h3><p>.      把xss.php内容改为（同时数据库中需要配置相应的表）：<br>       <img src="/picture/]LD%5X3%$3VE)B@{VG`0LL7.png"><br>       然后访问xss.php，并进行提交数据:<br>       <img src="/picture/]$[D~Y6~G)]8WTIUT75BOGF.png"><br>       这时我们发现网页并没有什么特别反应，但是我们现在已经把数据插入到了数据库当中了:<br>       <img src="/picture/}2[C[%WA[GP$0P5MZ[BKZ6Y.png"><br>       PS：由于操作失误插入了两项数据，但是这对于实验结果没有影响<br>       现在就可以执行show.php来进行查询数据库里边的数据了：<br>       <img src="/picture/DOB$M_42`N8$7M6BR{88W8V.png"><br>       存储型 XSS 的执行位置通常不同于输入位置。我们可以看出，存储行 XSS 的数据流向是：<br>       浏览器 -&gt; 后端 -&gt; 数据库 -&gt; 后端 -&gt; 浏览器。</p>
+<h3 id="四、文件与目录操作-1"><a href="#四、文件与目录操作-1" class="headerlink" title="四、文件与目录操作"></a>四、文件与目录操作</h3><p>把xss.php内容改为（同时数据库中需要配置相应的表）：<br>       <img src="/picture/100.png"><br>       然后访问xss.php，并进行提交数据:<br>       <img src="/picture/]$[D~Y6~G)]8WTIUT75BOGF.png"><br>       这时我们发现网页并没有什么特别反应，但是我们现在已经把数据插入到了数据库当中了:<br>       <img src="/picture/101.png"><br>       PS：由于操作失误插入了两项数据，但是这对于实验结果没有影响<br>       现在就可以执行show.php来进行查询数据库里边的数据了：<br>       <img src="/picture/DOB$M_42`N8$7M6BR{88W8V.png"><br>       存储型 XSS 的执行位置通常不同于输入位置。我们可以看出，存储行 XSS 的数据流向是：<br>       浏览器 -&gt; 后端 -&gt; 数据库 -&gt; 后端 -&gt; 浏览器。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年06月11日 19:42</p>
+        <p>最后更新： 2019年06月11日 20:00</p>
         <p>原始链接： <a class="post-url" href="/2019/05/21/XSS 攻击/" title="XSS 攻击">http://yoursite.com/2019/05/21/XSS 攻击/</a></p>
         <footer>
             <a href="http://yoursite.com">
