@@ -96,28 +96,22 @@
 
 
 
-  <meta name="description" content="Welcome to 小石头 前言本小白前不久学习了关于XSS的一些小知识，在这里简单的做一些记录其次学长给推荐了一个非常有趣的XSS练习网站—–XSS平台 一、关于XSSXSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意WEB用户将代码植入到提供给">
+  <meta name="description" content="Welcome to 小石头! 一.Base64简介Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；2.能够对文本进行简单的加密 二.Base64编码规则所谓Base64，就是说选出64个字符—-小写字母a-z、大写字母A-Z、数字0-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XSS 攻击">
-<meta property="og:url" content="http://yoursite.com/2019/05/21/XSS 攻击/index.html">
+<meta property="og:title" content="Base64 | Base32 | Base16编码和解码小结">
+<meta property="og:url" content="http://yoursite.com/2019/06/15/Base64  Base32  Base16编码和解码小结/index.html">
 <meta property="og:site_name" content="金毛师兄">
-<meta property="og:description" content="Welcome to 小石头 前言本小白前不久学习了关于XSS的一些小知识，在这里简单的做一些记录其次学长给推荐了一个非常有趣的XSS练习网站—–XSS平台 一、关于XSSXSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意WEB用户将代码植入到提供给">
+<meta property="og:description" content="Welcome to 小石头! 一.Base64简介Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；2.能够对文本进行简单的加密 二.Base64编码规则所谓Base64，就是说选出64个字符—-小写字母a-z、大写字母A-Z、数字0-">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/picture/D8%600DDQX7QZG[B%7D(68A]%7B0O.png">
-<meta property="og:image" content="http://yoursite.com/picture/O7X626SZC)58HBEBE@I~S[M.png">
-<meta property="og:image" content="http://yoursite.com/picture/99.png">
-<meta property="og:image" content="http://yoursite.com/picture/@%7BT9[2%605%60CZQS(C)$$WZAHU.png">
-<meta property="og:image" content="http://yoursite.com/picture/O78ZI7K0D~PA]9EF_E9UL9Q.png">
-<meta property="og:image" content="http://yoursite.com/picture/20161227141714142.png">
-<meta property="og:image" content="http://yoursite.com/picture/100.png">
-<meta property="og:image" content="http://yoursite.com/picture/]$[D~Y6~G)]8WTIUT75BOGF.png">
-<meta property="og:image" content="http://yoursite.com/picture/101.png">
-<meta property="og:image" content="http://yoursite.com/picture/DOB$M_42%60N8$7M6BR%7B88W8V.png">
-<meta property="og:updated_time" content="2019-06-11T12:00:48.624Z">
+<meta property="og:image" content="http://yoursite.com/picture/1.png">
+<meta property="og:image" content="http://yoursite.com/picture/2.png">
+<meta property="og:image" content="http://yoursite.com/picture/3.png">
+<meta property="og:image" content="http://yoursite.com/picture/4.png">
+<meta property="og:updated_time" content="2019-06-10T11:14:28.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XSS 攻击">
-<meta name="twitter:description" content="Welcome to 小石头 前言本小白前不久学习了关于XSS的一些小知识，在这里简单的做一些记录其次学长给推荐了一个非常有趣的XSS练习网站—–XSS平台 一、关于XSSXSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意WEB用户将代码植入到提供给">
-<meta name="twitter:image" content="http://yoursite.com/picture/D8%600DDQX7QZG[B%7D(68A]%7B0O.png">
+<meta name="twitter:title" content="Base64 | Base32 | Base16编码和解码小结">
+<meta name="twitter:description" content="Welcome to 小石头! 一.Base64简介Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；2.能够对文本进行简单的加密 二.Base64编码规则所谓Base64，就是说选出64个字符—-小写字母a-z、大写字母A-Z、数字0-">
+<meta name="twitter:image" content="http://yoursite.com/picture/1.png">
 
 
 
@@ -125,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/21/XSS 攻击/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/15/Base64  Base32  Base16编码和解码小结/">
 
 
 
@@ -135,7 +129,7 @@
   };
 </script>
 
-  <title>XSS 攻击 | 金毛师兄</title>
+  <title>Base64 | Base32 | Base16编码和解码小结 | 金毛师兄</title>
   
 
 
@@ -338,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/XSS 攻击/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/Base64  Base32  Base16编码和解码小结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WDS">
@@ -355,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">XSS 攻击
+          <h1 class="post-title" itemprop="name headline">Base64 | Base32 | Base16编码和解码小结
 
               
             
@@ -381,7 +375,7 @@
                 
               
 
-              <time title="Erstellt: 2019-05-21 19:21:54" itemprop="dateCreated datePublished" datetime="2019-05-21T19:21:54+08:00">2019-05-21</time>
+              <time title="Erstellt: 2019-06-15 07:21:59" itemprop="dateCreated datePublished" datetime="2019-06-15T07:21:59+08:00">2019-06-15</time>
             
 
             
@@ -398,7 +392,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-06-11 20:00:48" itemprop="dateModified" datetime="2019-06-11T20:00:48+08:00">2019-06-11</time>
+                <time title="Geändert am: 2019-06-10 19:14:28" itemprop="dateModified" datetime="2019-06-10T19:14:28+08:00">2019-06-10</time>
               
             
           </span>
@@ -432,17 +426,21 @@
       
 
       
-        <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本小白前不久学习了关于XSS的一些小知识，在这里简单的做一些记录<br>其次学长给推荐了一个非常有趣的XSS练习网站—–<a href="http://test.xss.tv/" target="_blank" rel="noopener">XSS平台</a></p>
-<h3 id="一、关于XSS"><a href="#一、关于XSS" class="headerlink" title="一、关于XSS"></a>一、关于XSS</h3><p>XSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意WEB用户将代码植入到提供给其它用户使用的页面中，会使别的网站用户访问特定网页的时候来执行恶意WEB用户植入的相应代码，从而达到盗取用户资料、利用用户的身份进行某种行为，或者对访问者进行病毒侵害的一种攻击方式</p>
-<h3 id="二、XSS的危害包括"><a href="#二、XSS的危害包括" class="headerlink" title="二、XSS的危害包括"></a>二、XSS的危害包括</h3><p>   1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>   2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>   3、盗窃企业重要的具有商业价值的资料<br>   4、非法转账<br>   6、网站挂马<br>   7、控制受害者机器向其它网站发起攻击</p>
-<h3 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h3><p>XSS大致可以分为三类：<br>                  1、反射型：经过后端，不经过数据库<br>                  2、存储型：经过后端，经过数据库<br>                  3、DOM：不经过后端,DOM—basedXSS漏洞是基于文档对象模型Document的一种漏洞,dom-xss是通过url传入参数去控制触发</p>
-<h3 id="四、文件与目录操作"><a href="#四、文件与目录操作" class="headerlink" title="四、文件与目录操作"></a>四、文件与目录操作</h3><p>1、反射型：<br>        在Notepad++上新建一个xss.html,并写入以下PHP代码：<br>        <img src="/picture/D8`0DDQX7QZG[B}(68A]{0O.png"><br>        在这串PHP代码中包含了一个表单，用于向页面发送GET请求，并且其中包含有一个名为xss的参数。<br>        在执行的过程当中PHP会读取XSS参数，当判定XSS参数的值不为空的时候页面会自动打印出XSS参数中所包含的数据。<br>        例如这串代码：在代码执行的过程中发现xss参数中的之后不为空，则页面会打印出XSS参数包含的值：<br>        <img src="/picture/O7X626SZC)58HBEBE@I~S[M.png"><br>        由此可见，这里并没有对用户传入的数据进行任何过滤，如果网站当中存在这类漏洞的情况，那么就可以通过xss来把网站的用户信息盗取出来</p>
-<p>2.存储型：<br>     (1)在将上边的xss.php文件的内容改为（同时数据库中需要配置相应的表)：<br>         <img src="/picture/99.png"><br>        这时我们发现用户上传的数据并没有进行处理，但是上传的数据不会直接显示在页面之中，而是插入到了数据库当中,这时如果某些用户利用这个漏洞，就可以把一些恶意代码导入其中，从而进行窃取用户数据<br>     (2)现在新建一个名为show.php的文件，并且输入以下代码：<br>        <img src="/picture/@{T9[2`5`CZQS(C)$$WZAHU.png"><br>        这串代码进去到数据库当中，并且把数据库中相应的数据打印出来</p>
-<p>3.dom-xss：<br>         将上边的xss.php改为：<br>        <img src="/picture/O78ZI7K0D~PA]9EF_E9UL9Q.png"><br>        <img src="/picture/20161227141714142.png"><br>        DOM-XSS 的数据流向是：URL–&gt;浏览器 </p>
-<p>总结: 在易用上，存储型XSS &gt; DOM - XSS &gt; 反射型 XSS。</p>
-<p>PS：反射型xss和dom-xss都需要在url加入js代码才能够触发。</p>
-<h3 id="四、文件与目录操作-1"><a href="#四、文件与目录操作-1" class="headerlink" title="四、文件与目录操作"></a>四、文件与目录操作</h3><p>把xss.php内容改为（同时数据库中需要配置相应的表）：<br>       <img src="/picture/100.png"><br>       然后访问xss.php，并进行提交数据:<br>       <img src="/picture/]$[D~Y6~G)]8WTIUT75BOGF.png"><br>       这时我们发现网页并没有什么特别反应，但是我们现在已经把数据插入到了数据库当中了:<br>       <img src="/picture/101.png"><br>       PS：由于操作失误插入了两项数据，但是这对于实验结果没有影响<br>       现在就可以执行show.php来进行查询数据库里边的数据了：<br>       <img src="/picture/DOB$M_42`N8$7M6BR{88W8V.png"><br>       存储型 XSS 的执行位置通常不同于输入位置。我们可以看出，存储行 XSS 的数据流向是：<br>       浏览器 -&gt; 后端 -&gt; 数据库 -&gt; 后端 -&gt; 浏览器。</p>
+        <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
+<h3 id="一-Base64简介"><a href="#一-Base64简介" class="headerlink" title="一.Base64简介"></a>一.Base64简介</h3><p>Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：<br>1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；<br>2.能够对文本进行简单的加密</p>
+<h3 id="二-Base64编码规则"><a href="#二-Base64编码规则" class="headerlink" title="二.Base64编码规则"></a>二.Base64编码规则</h3><p>所谓Base64，就是说选出64个字符—-小写字母a-z、大写字母A-Z、数字0-9、符号”+”、”/“（再加上作为垫字的”=”，实际上是65个字符）—-作为一个基本字符集。然后，其他所有符号都转换成这个字符集中的字符<br> 具体来说，转换方式可以分为四步：<br> 1.将每三个字节作为一组，一共是24个二进制位<br> 2.将这24个二进制位分为四组，每个组有6个二进制位<br> 3.在每组前面加两个00，扩展成32个二进制位，即四个字节<br> 4.根据下表，得到扩展后的每个字节的对应符号，这就是Base64的编码值</p>
+<p><img src="/picture/1.png"></p>
+<h3 id="三-Base64编码的一个例子"><a href="#三-Base64编码的一个例子" class="headerlink" title="三.Base64编码的一个例子"></a>三.Base64编码的一个例子</h3><p>举一个具体的实例，演示英语单词Man如何转成Base64编码：</p>
+<p><img src="/picture/2.png"></p>
+<p>备注：</p>
+<p>1.Base64将三个字节转化成四个字节，因此Base64编码后的文本，会比原文本大出三分之一左右</p>
+<p>2.对于不满3个字节的东东，就需要加上base64编码中的垫字符来补充</p>
+<p>3.Base64编码是可逆的，所以有Base64编码encode和解码decode</p>
+<p>4.Base64主要不是加密，它主要的用途是把一些二进制数转成普通字符用于网络传输（因为一些二进制字符在传输协议中属于控制字符，不能直接传送）。另外，还有一些系统中只能使用ASCII字符。Base64就是用来将非ASCII字符的数据转换成ASCII字符的一种方法。base64其实不是安全领域下的加密解密算法。虽然有时候经常看到所谓的base64加密解密。其实base64只能算是一个编码算法，对数据内容进行编码来适合传输。虽然base64编码过后原文也变成不能看到的字符格式，但是这种方式很初级，很简单</p>
+<h3 id="四-Base32和Base16"><a href="#四-Base32和Base16" class="headerlink" title="四.Base32和Base16"></a>四.Base32和Base16</h3><p>在Base家族中还有Base32和Base16，其实Base32/Base16和Base64目的是一样的，只是具体的编码规则的不一样罢了<br>Base32编码将二进制文件转换成由32个ASCII字符组成的文本<br>Base16编码则将二进制文件转换成由16个字符组成的文本<br>附上Base32编码映射表如下：</p>
+<p><img src="/picture/3.png"></p>
+<p><img src="/picture/4.png"></p>
+<p>More info: <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1564047618&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener">小石头</a></p>
 
       
     </div>
@@ -506,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/28/利用SQL注入漏洞登录后台/" rel="next" title="利用SQL注入漏洞登录后台">
-                <i class="fa fa-chevron-left"></i> 利用SQL注入漏洞登录后台
+              <a href="/2019/06/15/hello-world/" rel="next" title="How to create a new post">
+                <i class="fa fa-chevron-left"></i> How to create a new post
               </a>
             
           </div>
@@ -516,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/15/hello-world/" rel="prev" title="How to create a new post">
-                How to create a new post <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/15/How-to-Build-a-Blog-with-Hexo/" rel="prev" title="How to build your own blog with GitHub + hexo">
+                How to build your own blog with GitHub + hexo <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -637,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、关于XSS"><span class="nav-number">2.</span> <span class="nav-text">一、关于XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、XSS的危害包括"><span class="nav-number">3.</span> <span class="nav-text">二、XSS的危害包括</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、图像处理"><span class="nav-number">4.</span> <span class="nav-text">三、图像处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、文件与目录操作"><span class="nav-number">5.</span> <span class="nav-text">四、文件与目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、文件与目录操作-1"><span class="nav-number">6.</span> <span class="nav-text">四、文件与目录操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-Base64简介"><span class="nav-number">1.</span> <span class="nav-text">一.Base64简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-Base64编码规则"><span class="nav-number">2.</span> <span class="nav-text">二.Base64编码规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-Base64编码的一个例子"><span class="nav-number">3.</span> <span class="nav-text">三.Base64编码的一个例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-Base32和Base16"><span class="nav-number">4.</span> <span class="nav-text">四.Base32和Base16</span></a></li></ol></div>
             
 
           </div>
@@ -799,7 +797,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/05/21/XSS 攻击/'
+    refer: '2019/06/15/Base64  Base32  Base16编码和解码小结/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
