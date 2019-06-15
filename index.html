@@ -196,7 +196,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="تغییر ناوبری">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -224,7 +224,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>صفحه اصلی</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
 
   </li>
         
@@ -241,7 +241,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>برچسب ها</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
 
   </li>
         
@@ -258,7 +258,7 @@
 
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>دسته بندی ها</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
 
   </li>
         
@@ -275,7 +275,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>بایگانی</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
 
   </li>
 
@@ -311,175 +311,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/Base64  Base32  Base16编码和解码小结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WDS">
-      <meta itemprop="description" content="世间所有的相遇，都是久别重逢">
-      <meta itemprop="image" content="/images/log.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="金毛师兄">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/15/Base64  Base32  Base16编码和解码小结/" class="post-title-link" itemprop="url">Base64 | Base32 | Base16编码和解码小结</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">نوشته شده در</span>
-              
-
-              
-                
-              
-
-              <time title="ایجاد شده: 2019-06-15 07:21:59" itemprop="dateCreated datePublished" datetime="2019-06-15T07:21:59+08:00">2019-06-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">ویرایش شده در</span>
-                
-                <time title="تغییر یافته: 2019-06-10 19:14:28" itemprop="dateModified" datetime="2019-06-10T19:14:28+08:00">2019-06-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
-<h3 id="一-Base64简介"><a href="#一-Base64简介" class="headerlink" title="一.Base64简介"></a>一.Base64简介</h3><p>Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：<br>1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；<br>2.能够对文本进行简单的加密</p>
-<h3 id="二-Base64编码规则"><a href="#二-Base64编码规则" class="headerlink" title="二.Base64编码规则"></a>二.Base64编码规则</h3><p>所谓Base64，就是说选出64个字符—-小写字母a-z、大写字母A-Z、数字0-9、符号”+”、”/“（再加上作为垫字的”=”，实际上是65个字符）—-作为一个基本字符集。然后，其他所有符号都转换成这个字符集中的字符<br> 具体来说，转换方式可以分为四步：<br> 1.将每三个字节作为一组，一共是24个二进制位<br> 2.将这24个二进制位分为四组，每个组有6个二进制位<br> 3.在每组前面加两个00，扩展成32个二进制位，即四个字节<br> 4.根据下表，得到扩展后的每个字节的对应符号，这就是Base64的编码值</p>
-<p><img src="/picture/1.png"></p>
-<h3 id="三-Base64编码的一个例子"><a href="#三-Base64编码的一个例子" class="headerlink" title="三.Base64编码的一个例子"></a>三.Base64编码的一个例子</h3><p>举一个具体的实例，演示英语单词Man如何转成Base64编码：</p>
-<p><img src="/picture/2.png"></p>
-<p>备注：</p>
-<p>1.Base64将三个字节转化成四个字节，因此Base64编码后的文本，会比原文本大出三分之一左右</p>
-<p>2.对于不满3个字节的东东，就需要加上base64编码中的垫字符来补充</p>
-<p>3.Base64编码是可逆的，所以有Base64编码encode和解码decode</p>
-<p>4.Base64主要不是加密，它主要的用途是把一些二进制数转成普通字符用于网络传输（因为一些二进制字符在传输协议中属于控制字符，不能直接传送）。另外，还有一些系统中只能使用ASCII字符。Base64就是用来将非ASCII字符的数据转换成ASCII字符的一种方法。base64其实不是安全领域下的加密解密算法。虽然有时候经常看到所谓的base64加密解密。其实base64只能算是一个编码算法，对数据内容进行编码来适合传输。虽然base64编码过后原文也变成不能看到的字符格式，但是这种方式很初级，很简单</p>
-<h3 id="四-Base32和Base16"><a href="#四-Base32和Base16" class="headerlink" title="四.Base32和Base16"></a>四.Base32和Base16</h3><p>在Base家族中还有Base32和Base16，其实Base32/Base16和Base64目的是一样的，只是具体的编码规则的不一样罢了<br>Base32编码将二进制文件转换成由32个ASCII字符组成的文本<br>Base16编码则将二进制文件转换成由16个字符组成的文本<br>附上Base32编码映射表如下：</p>
-<p><img src="/picture/3.png"></p>
-<p><img src="/picture/4.png"></p>
-<p>More info: <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1564047618&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener">小石头</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -534,14 +365,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-06-15 07:21:59" itemprop="dateCreated datePublished" datetime="2019-06-15T07:21:59+08:00">2019-06-15</time>
+              <time title="Created: 2019-06-15 07:21:59" itemprop="dateCreated datePublished" datetime="2019-06-15T07:21:59+08:00">2019-06-15</time>
             
 
             
@@ -556,9 +387,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-04-10 21:03:50" itemprop="dateModified" datetime="2019-04-10T21:03:50+08:00">2019-04-10</time>
+                <time title="Modified: 2019-04-10 21:03:50" itemprop="dateModified" datetime="2019-04-10T21:03:50+08:00">2019-04-10</time>
               
             
           </span>
@@ -694,14 +525,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-06-15 07:21:59" itemprop="dateCreated datePublished" datetime="2019-06-15T07:21:59+08:00">2019-06-15</time>
+              <time title="Created: 2019-06-15 07:21:59" itemprop="dateCreated datePublished" datetime="2019-06-15T07:21:59+08:00">2019-06-15</time>
             
 
             
@@ -716,9 +547,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-04-10 21:03:26" itemprop="dateModified" datetime="2019-04-10T21:03:26+08:00">2019-04-10</time>
+                <time title="Modified: 2019-04-10 21:03:26" itemprop="dateModified" datetime="2019-04-10T21:03:26+08:00">2019-04-10</time>
               
             
           </span>
@@ -819,6 +650,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/Base64  Base32  Base16编码和解码小结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WDS">
+      <meta itemprop="description" content="世间所有的相遇，都是久别重逢">
+      <meta itemprop="image" content="/images/log.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金毛师兄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/15/Base64  Base32  Base16编码和解码小结/" class="post-title-link" itemprop="url">Base64 | Base32 | Base16编码和解码小结</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-15 07:21:59" itemprop="dateCreated datePublished" datetime="2019-06-15T07:21:59+08:00">2019-06-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-10 19:14:28" itemprop="dateModified" datetime="2019-06-10T19:14:28+08:00">2019-06-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">小石头</a>!</p>
+<h3 id="一-Base64简介"><a href="#一-Base64简介" class="headerlink" title="一.Base64简介"></a>一.Base64简介</h3><p>Base64是一种基于64个可打印字符来表示二进制数据的表示方法。base64编码一般有下面两个用途：<br>1.所有的二进制文件，都可以因此转化为可打印的文本编码（都变成ASCII码可打印字符），使用文本软件进行编辑；<br>2.能够对文本进行简单的加密</p>
+<h3 id="二-Base64编码规则"><a href="#二-Base64编码规则" class="headerlink" title="二.Base64编码规则"></a>二.Base64编码规则</h3><p>所谓Base64，就是说选出64个字符—-小写字母a-z、大写字母A-Z、数字0-9、符号”+”、”/“（再加上作为垫字的”=”，实际上是65个字符）—-作为一个基本字符集。然后，其他所有符号都转换成这个字符集中的字符<br> 具体来说，转换方式可以分为四步：<br> 1.将每三个字节作为一组，一共是24个二进制位<br> 2.将这24个二进制位分为四组，每个组有6个二进制位<br> 3.在每组前面加两个00，扩展成32个二进制位，即四个字节<br> 4.根据下表，得到扩展后的每个字节的对应符号，这就是Base64的编码值</p>
+<p><img src="/picture/1.png"></p>
+<h3 id="三-Base64编码的一个例子"><a href="#三-Base64编码的一个例子" class="headerlink" title="三.Base64编码的一个例子"></a>三.Base64编码的一个例子</h3><p>举一个具体的实例，演示英语单词Man如何转成Base64编码：</p>
+<p><img src="/picture/2.png"></p>
+<p>备注：</p>
+<p>1.Base64将三个字节转化成四个字节，因此Base64编码后的文本，会比原文本大出三分之一左右</p>
+<p>2.对于不满3个字节的东东，就需要加上base64编码中的垫字符来补充</p>
+<p>3.Base64编码是可逆的，所以有Base64编码encode和解码decode</p>
+<p>4.Base64主要不是加密，它主要的用途是把一些二进制数转成普通字符用于网络传输（因为一些二进制字符在传输协议中属于控制字符，不能直接传送）。另外，还有一些系统中只能使用ASCII字符。Base64就是用来将非ASCII字符的数据转换成ASCII字符的一种方法。base64其实不是安全领域下的加密解密算法。虽然有时候经常看到所谓的base64加密解密。其实base64只能算是一个编码算法，对数据内容进行编码来适合传输。虽然base64编码过后原文也变成不能看到的字符格式，但是这种方式很初级，很简单</p>
+<h3 id="四-Base32和Base16"><a href="#四-Base32和Base16" class="headerlink" title="四.Base32和Base16"></a>四.Base32和Base16</h3><p>在Base家族中还有Base32和Base16，其实Base32/Base16和Base64目的是一样的，只是具体的编码规则的不一样罢了<br>Base32编码将二进制文件转换成由32个ASCII字符组成的文本<br>Base16编码则将二进制文件转换成由16个字符组成的文本<br>附上Base32编码映射表如下：</p>
+<p><img src="/picture/3.png"></p>
+<p><img src="/picture/4.png"></p>
+<p>More info: <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1564047618&amp;site=qq&amp;menu=yes" target="_blank" rel="noopener">小石头</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/XSS 攻击/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -857,14 +857,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-05-21 19:21:54" itemprop="dateCreated datePublished" datetime="2019-05-21T19:21:54+08:00">2019-05-21</time>
+              <time title="Created: 2019-05-21 19:21:54" itemprop="dateCreated datePublished" datetime="2019-05-21T19:21:54+08:00">2019-05-21</time>
             
 
             
@@ -879,9 +879,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-06-11 20:00:48" itemprop="dateModified" datetime="2019-06-11T20:00:48+08:00">2019-06-11</time>
+                <time title="Modified: 2019-06-11 20:00:48" itemprop="dateModified" datetime="2019-06-11T20:00:48+08:00">2019-06-11</time>
               
             
           </span>
@@ -1022,14 +1022,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-04-28 21:45:24" itemprop="dateCreated datePublished" datetime="2019-04-28T21:45:24+08:00">2019-04-28</time>
+              <time title="Created: 2019-04-28 21:45:24" itemprop="dateCreated datePublished" datetime="2019-04-28T21:45:24+08:00">2019-04-28</time>
             
 
             
@@ -1044,9 +1044,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-05-07 19:12:23" itemprop="dateModified" datetime="2019-05-07T19:12:23+08:00">2019-05-07</time>
+                <time title="Modified: 2019-05-07 19:12:23" itemprop="dateModified" datetime="2019-05-07T19:12:23+08:00">2019-05-07</time>
               
             
           </span>
@@ -1190,14 +1190,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-04-19 13:45:24" itemprop="dateCreated datePublished" datetime="2019-04-19T13:45:24+08:00">2019-04-19</time>
+              <time title="Created: 2019-04-19 13:45:24" itemprop="dateCreated datePublished" datetime="2019-04-19T13:45:24+08:00">2019-04-19</time>
             
 
             
@@ -1212,9 +1212,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-06-10 19:20:56" itemprop="dateModified" datetime="2019-06-10T19:20:56+08:00">2019-06-10</time>
+                <time title="Modified: 2019-06-10 19:20:56" itemprop="dateModified" datetime="2019-06-10T19:20:56+08:00">2019-06-10</time>
               
             
           </span>
@@ -1350,14 +1350,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-04-12 13:45:24" itemprop="dateCreated datePublished" datetime="2019-04-12T13:45:24+08:00">2019-04-12</time>
+              <time title="Created: 2019-04-12 13:45:24" itemprop="dateCreated datePublished" datetime="2019-04-12T13:45:24+08:00">2019-04-12</time>
             
 
             
@@ -1372,9 +1372,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-05-01 08:42:34" itemprop="dateModified" datetime="2019-05-01T08:42:34+08:00">2019-05-01</time>
+                <time title="Modified: 2019-05-01 08:42:34" itemprop="dateModified" datetime="2019-05-01T08:42:34+08:00">2019-05-01</time>
               
             
           </span>
@@ -1518,14 +1518,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-04-05 13:45:24" itemprop="dateCreated datePublished" datetime="2019-04-05T13:45:24+08:00">2019-04-05</time>
+              <time title="Created: 2019-04-05 13:45:24" itemprop="dateCreated datePublished" datetime="2019-04-05T13:45:24+08:00">2019-04-05</time>
             
 
             
@@ -1540,9 +1540,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-06-05 19:48:29" itemprop="dateModified" datetime="2019-06-05T19:48:29+08:00">2019-06-05</time>
+                <time title="Modified: 2019-06-05 19:48:29" itemprop="dateModified" datetime="2019-06-05T19:48:29+08:00">2019-06-05</time>
               
             
           </span>
@@ -1688,14 +1688,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-03-29 21:45:24" itemprop="dateCreated datePublished" datetime="2019-03-29T21:45:24+08:00">2019-03-29</time>
+              <time title="Created: 2019-03-29 21:45:24" itemprop="dateCreated datePublished" datetime="2019-03-29T21:45:24+08:00">2019-03-29</time>
             
 
             
@@ -1710,9 +1710,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-04-10 21:04:22" itemprop="dateModified" datetime="2019-04-10T21:04:22+08:00">2019-04-10</time>
+                <time title="Modified: 2019-04-10 21:04:22" itemprop="dateModified" datetime="2019-04-10T21:04:22+08:00">2019-04-10</time>
               
             
           </span>
@@ -1854,14 +1854,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-03-28 21:45:24" itemprop="dateCreated datePublished" datetime="2019-03-28T21:45:24+08:00">2019-03-28</time>
+              <time title="Created: 2019-03-28 21:45:24" itemprop="dateCreated datePublished" datetime="2019-03-28T21:45:24+08:00">2019-03-28</time>
             
 
             
@@ -1876,9 +1876,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="تغییر یافته: 2019-04-10 21:03:12" itemprop="dateModified" datetime="2019-04-10T21:03:12+08:00">2019-04-10</time>
+                <time title="Modified: 2019-04-10 21:03:12" itemprop="dateModified" datetime="2019-04-10T21:03:12+08:00">2019-04-10</time>
               
             
           </span>
@@ -2012,7 +2012,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">پست ها</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -2076,7 +2076,7 @@
 </div>
 
 
-  <div class="powered-by">قدرت گرفته از <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -2084,7 +2084,7 @@
 
 
 
-  <div class="theme-info">پوسته – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
 
 
 
