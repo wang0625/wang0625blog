@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-12T08:04:50.822Z</updated>
+  <updated>2019-07-12T08:23:50.815Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>攻防世界 MISC</title>
-    <link href="http://yoursite.com/2019/07/12/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%20MISC/"/>
-    <id>http://yoursite.com/2019/07/12/攻防世界 MISC/</id>
+    <link href="http://yoursite.com/2019/07/12/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%20MISC%20%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0/"/>
+    <id>http://yoursite.com/2019/07/12/攻防世界 MISC 新手练习/</id>
     <published>2019-07-12T11:21:54.000Z</published>
-    <updated>2019-07-12T08:04:50.822Z</updated>
+    <updated>2019-07-12T08:23:50.815Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">金毛师兄</a></p><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>暑假学习任务需要交博客，奈何实在是看不懂惊奇队长的要求，于是就把做的题做一个总结—–<a href="https://adworld.xctf.org.cn/" target="_blank" rel="noopener">XSS平台</a></p><h3 id="一、this-is-flag"><a href="#一、this-is-flag" class="headerlink" title="一、this_is_flag"></a>一、this_is_flag</h3><p><img src="/picture/123.png"></p><p>额…..这道题…我觉得只要不傻都能做出来</p><p><img src="/picture/l55.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;th1s_!s_a_d4m0_4la9&#125;</span><br></pre></td></tr></table></figure><h3 id="二、ext3"><a href="#二、ext3" class="headerlink" title="二、ext3"></a>二、ext3</h3><p><img src="/picture/37P.png"></p><p>做这个体需要制作一个Linux环境，我是在电脑上个搭建了一个VM虚拟机，制作了一个Linux环境<br>虚拟机搭建方法：<br>            关注微信公主号：软件安装管家  回复：CentOS 7 按照步骤安装</p><p>下载文件可以看出文件是Linux下的一个文件系统本能的查询了一下系统里有没有flag的相关字符，结果有以下的几个人发现：</p><p><img src="/picture/20190413185806737.png"></p><p>flag就在这个flag.txt文件里没错了。root模式下使用mount linux /mnt命令将linux光盘挂载在mnt目录下，切换到mnt目录，使用cat O7avZhikgKgbF/flag.txt命令对flag内容进行读取，得到ZmxhZ3tzYWpiY2lienNrampjbmJoc2J2Y2pianN6Y3N6Ymt6an0=，明显得是base64，秀字一下得到flag.</p><p><img src="/picture/26M.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;sajbcibzskjjcnbhsbvcjbjszcszbkzj&#125;</span><br></pre></td></tr></table></figure><h3 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h3>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">金毛师兄</a></p><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>暑假学习任务需要交博客，奈何实在是看不懂惊奇队长的要求，于是就把做的题做一个总结—–<a href="https://adworld.xctf.org.cn/" target="_blank" rel="noopener">XSS平台</a></p><h3 id="一、this-is-flag"><a href="#一、this-is-flag" class="headerlink" title="一、this_is_flag"></a>一、this_is_flag</h3><p><img src="/picture/123.png"></p><p>额…..这道题…我觉得只要不傻都能做出来</p><p><img src="/picture/l55.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;th1s_!s_a_d4m0_4la9&#125;</span><br></pre></td></tr></table></figure><h3 id="二、ext3"><a href="#二、ext3" class="headerlink" title="二、ext3"></a>二、ext3</h3><p><img src="/picture/37P.png"></p><p>做这个体需要制作一个Linux环境，我是在电脑上个搭建了一个VM虚拟机，制作了一个Linux环境<br>虚拟机搭建方法：<br>            关注微信公主号：软件安装管家  回复：CentOS 7 按照步骤安装</p><p>下载文件可以看出文件是Linux下的一个文件系统本能的查询了一下系统里有没有flag的相关字符，结果有以下的几个人发现：</p><p><img src="/picture/20190413185806737.png"></p><p>flag就在这个flag.txt文件里没错了。root模式下使用mount linux /mnt命令将linux光盘挂载在mnt目录下，切换到mnt目录，使用cat O7avZhikgKgbF/flag.txt命令对flag内容进行读取，得到ZmxhZ3tzYWpiY2lienNrampjbmJoc2J2Y2pianN6Y3N6Ymt6an0=，明显得是base64，秀字一下得到flag.</p><p><img src="/picture/26M.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;sajbcibzskjjcnbhsbvcjbjszcszbkzj&#125;</span><br></pre></td></tr></table></figure><h3 id="三、give-you-flag"><a href="#三、give-you-flag" class="headerlink" title="三、give_you_flag"></a>三、give_you_flag</h3><p><img src="/picture/121W.png"></p><p>下载文件可以得到一个GIF文件，在文件中可以明显看到有一个二维码一闪而过，定帧得到：</p><p><img src="/picture/20190420225546685.png"></p><p>感觉二维码好别扭，少了三个框，P上去</p><p><img src="/picture/20190420231356293.jpg"></p><p>扫描得到flag</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;e7d478cf6b915f50ab1277f78502a2c5&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     

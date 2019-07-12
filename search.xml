@@ -2,8 +2,8 @@
 <search>
   <entry>
     <title><![CDATA[攻防世界 MISC]]></title>
-    <url>%2F2019%2F07%2F12%2F%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%20MISC%2F</url>
-    <content type="text"><![CDATA[Welcome to 金毛师兄 前言暑假学习任务需要交博客，奈何实在是看不懂惊奇队长的要求，于是就把做的题做一个总结—–XSS平台 一、this_is_flag 额…..这道题…我觉得只要不傻都能做出来 1flag&#123;th1s_!s_a_d4m0_4la9&#125; 二、ext3 做这个体需要制作一个Linux环境，我是在电脑上个搭建了一个VM虚拟机，制作了一个Linux环境虚拟机搭建方法： 关注微信公主号：软件安装管家 回复：CentOS 7 按照步骤安装 下载文件可以看出文件是Linux下的一个文件系统本能的查询了一下系统里有没有flag的相关字符，结果有以下的几个人发现： flag就在这个flag.txt文件里没错了。root模式下使用mount linux /mnt命令将linux光盘挂载在mnt目录下，切换到mnt目录，使用cat O7avZhikgKgbF/flag.txt命令对flag内容进行读取，得到ZmxhZ3tzYWpiY2lienNrampjbmJoc2J2Y2pianN6Y3N6Ymt6an0=，明显得是base64，秀字一下得到flag. 1flag&#123;sajbcibzskjjcnbhsbvcjbjszcszbkzj&#125; 三、图像处理]]></content>
+    <url>%2F2019%2F07%2F12%2F%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%20MISC%20%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[Welcome to 金毛师兄 前言暑假学习任务需要交博客，奈何实在是看不懂惊奇队长的要求，于是就把做的题做一个总结—–XSS平台 一、this_is_flag 额…..这道题…我觉得只要不傻都能做出来 1flag&#123;th1s_!s_a_d4m0_4la9&#125; 二、ext3 做这个体需要制作一个Linux环境，我是在电脑上个搭建了一个VM虚拟机，制作了一个Linux环境虚拟机搭建方法： 关注微信公主号：软件安装管家 回复：CentOS 7 按照步骤安装 下载文件可以看出文件是Linux下的一个文件系统本能的查询了一下系统里有没有flag的相关字符，结果有以下的几个人发现： flag就在这个flag.txt文件里没错了。root模式下使用mount linux /mnt命令将linux光盘挂载在mnt目录下，切换到mnt目录，使用cat O7avZhikgKgbF/flag.txt命令对flag内容进行读取，得到ZmxhZ3tzYWpiY2lienNrampjbmJoc2J2Y2pianN6Y3N6Ymt6an0=，明显得是base64，秀字一下得到flag. 1flag&#123;sajbcibzskjjcnbhsbvcjbjszcszbkzj&#125; 三、give_you_flag 下载文件可以得到一个GIF文件，在文件中可以明显看到有一个二维码一闪而过，定帧得到： 感觉二维码好别扭，少了三个框，P上去 扫描得到flag 1flag&#123;e7d478cf6b915f50ab1277f78502a2c5&#125;]]></content>
   </entry>
   <entry>
     <title><![CDATA[How to build your own blog with GitHub + hexo]]></title>
