@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-14T05:39:38.063Z</updated>
+  <updated>2019-07-14T07:30:13.077Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>攻防世界 WEB 新手练习</title>
+    <link href="http://yoursite.com/2019/07/13/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-WEB-%E6%96%B0%E6%89%8B%E7%BB%83%E4%B9%A0/"/>
+    <id>http://yoursite.com/2019/07/13/攻防世界-WEB-新手练习/</id>
+    <published>2019-07-13T11:21:54.000Z</published>
+    <updated>2019-07-14T07:30:13.077Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://wang0625.github.io/" target="_blank" rel="noopener">金毛师兄</a></p><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>暑假学习任务需要交博客，奈何实在是看不懂惊奇队长的要求，于是就把做的题做一个总结—–<a href="https://adworld.xctf.org.cn/" target="_blank" rel="noopener">攻防世界</a></p><h3 id="一、-view-source"><a href="#一、-view-source" class="headerlink" title="一、 view_source"></a>一、 view_source</h3><p><img src="/picture/NWU.png"></p><p>额…..这道题…看源码………</p><p><img src="/picture/CS4W11.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;b5295a81b8c905ba65579b5de3f08643&#125;</span><br></pre></td></tr></table></figure><h3 id="二、-view-source"><a href="#二、-view-source" class="headerlink" title="二、 view_source"></a>二、 view_source</h3><p><img src="/picture/JI5NFVF.png"></p><p>额………..不想解释      反正就这样就出来了</p><p><img src="/picture/GS93U.png"></p><p><img src="/picture/INC7GVLHNQ.png"></p><p>为啥不给我加金币？？？？？？？？？</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;5e0e361017ccbf7c25858a51c0be98ba&#125;</span><br></pre></td></tr></table></figure><h3 id="三、-view-source"><a href="#三、-view-source" class="headerlink" title="三、 view_source"></a>三、 view_source</h3><p>robots.txt文件是一个文本文件，使用任何一个常见的文本编辑器，比如Windows系统自带的Notepad，就可以创建和编辑它 [1]  。robots.txt是一个协议，而不是一个命令。robots.txt是搜索引擎中访问网站的时候要查看的第一个文件。robots.txt文件告诉蜘蛛程序在服务器上什么文件是可以被查看的。</p><p>当一个搜索蜘蛛访问一个站点时，它会首先检查该站点根目录下是否存在robots.txt，如果存在，搜索机器人就会按照该文件中的内容来确定访问的范围；如果该文件不存在，所有的搜索蜘蛛将能够访问网站上所有没有被口令保护的页面。百度官方建议，仅当您的网站包含不希望被搜索引擎收录的内容时，才需要使用robots.txt文件。如果您希望搜索引擎收录网站上所有内容，请勿建立robots.txt文件。</p><p>如果将网站视为酒店里的一个房间，robots.txt就是主人在房间门口悬挂的“请勿打扰”或“欢迎打扫”的提示牌。这个文件告诉来访的搜索引擎哪些房间可以进入和参观，哪些房间因为存放贵重物品，或可能涉及住户及访客的隐私而不对搜索引擎开放。但robots.txt不是命令，也不是防火墙，如同守门人无法阻止窃贼等恶意闯入者。</p><p>跟着解释走</p><p><img src="/picture/OH2ZMW0E.png">    </p><p><img src="/picture/2536FXV6XA.png"></p><p><img src="/picture/XP5TC067UHJGG22Y.png"></p><p>理解就没难度</p><p><img src="/picture/2B7NH70EM.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;a791fee7f13aeb54ab8d61fad3644891&#125;</span><br></pre></td></tr></table></figure><h3 id="四、-backup"><a href="#四、-backup" class="headerlink" title="四、 backup"></a>四、 backup</h3><p><img src="/picture/QSIZEB.png"></p><p>按照备份文件名输入就行了</p><p><img src="/picture/2SI%%XTB.png"></p><p>下载一个文件名为index.php.bak的文件   打开</p><p><img src="/picture/RNNF%LP.png"></p><p>提交  齐活</p><p><img src="/picture/16V5GZO61TY3.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;9b75228fe27a5bc4f5dd1b052bdf17f0&#125;</span><br></pre></td></tr></table></figure><h3 id="五、-backup"><a href="#五、-backup" class="headerlink" title="五、 backup"></a>五、 backup</h3><p><img src="/picture16/Z66B.png"></p><p>Cookie，有时也用其复数形式 Cookies，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。定义于 RFC2109 和 2965 中的都已废弃，最新取代的规范是 RFC6265   。（可以叫做浏览器缓存）</p><p><img src="/picture16/NA6G0ARVH.png"></p><p>就出来了。。。。。。。。。</p><p><img src="/picture16/39J4RC08J7.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;e19cbcd584bd6c0f6668dc2b793dd59a&#125;</span><br></pre></td></tr></table></figure><h3 id="六、-disabled-button"><a href="#六、-disabled-button" class="headerlink" title="六、 disabled_button"></a>六、 disabled_button</h3><p><img src="/picture16/1VXUBEC5HT4.png"></p><p>不能按？？？？？？？？？？？？？？</p><p><img src="/picture16/K45C71%V.png"></p><p>语句里的 disabled 是什么鬼？？？</p><p>百娘：</p><p><img src="/picture16/E1ITV5S2.png"></p><p>原来就是这个标签的问题   删了它   不能惯着他  我这爆脾气</p><p><img src="/picture16/HI5XLV%AWR7.png"></p><p>提交  完事。。。。。。。</p><p><img src="/picture16/1QCRUPFEF.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;906e9ecbb95c1ece3f4073fadc440724&#125;</span><br></pre></td></tr></table></figure><h3 id="七、-simple-js"><a href="#七、-simple-js" class="headerlink" title="七、 simple_js"></a>七、 simple_js</h3><p><img src="/picture16/JFDCFX54.png"></p><p>打开网站就让我输密码  逗我呢？</p><p>为了能看到源码就 随便输了一个密码</p><p>在源码里发现了一串神秘字符  </p><p>本人小白能力有限，实在解不出来  只好请教学长 </p><p>得知是16进制字符串  需要先解为10进制  然后再转为ASCII </p><p><img src="/picture16/QQ图片20190714145848.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;786OsErtk12&#125;</span><br></pre></td></tr></table></figure><h3 id="八、-webshell"><a href="#八、-webshell" class="headerlink" title="八、 webshell"></a>八、 webshell</h3><p><img src="/picture16/ZMAU8D7QU1.png"></p><p>打开网页，你会使用webshell吗？</p><p>并写出了一句话，从中很容易看出这个一句话的密码是” shell “</p><p><img src="/picture16/UXBH00EDNFO91.png"></p><p>顺理成章，打开中国菜刀，添加，输入url，输如密码，连接成功，</p><p>一气呵成   不给敌人任何喘息机会</p><p><img src="/picture16/20190429123526454.png"></p><p>菜刀连接成功后可以直接对服务器文件进行操作，看到flag.txt，打开获得我们想要的东西</p><p><img src="/picture16/20190429123637752.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyberpeace&#123;9f33520e15093b7a11fdb7c8ee69bb35&#125;</span><br></pre></td></tr></table></figure><h3 id="八、-关于webshell与一句话木马"><a href="#八、-关于webshell与一句话木马" class="headerlink" title="八、 关于webshell与一句话木马"></a>八、 关于webshell与一句话木马</h3><p>能力有限  详情请移步<a href="https://blog.csdn.net/qq_36119192/article/details/84563791" target="_blank" rel="noopener">谢公子</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://wang0625.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;金毛师兄&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>攻防世界 MISC 新手练习</title>
